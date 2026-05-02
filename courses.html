@@ -1,0 +1,483 @@
+<!doctype html>
+<html class="scroll-smooth" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Courses | Kingsland International Education Group</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-lowest": "#ffffff",
+              "primary-container": "#081434",
+              "on-tertiary": "#ffffff",
+              "surface-container-low": "#f8faff",
+              tertiary: "#D4AF37",
+              "tertiary-container": "#fcf4d9",
+              "on-surface": "#081434",
+              "on-error": "#ffffff",
+              "on-error-container": "#93000a",
+              "primary-fixed": "#d1d9e6",
+              "surface-dim": "#e0e4f0",
+              "on-background": "#081434",
+              "surface-container": "#f0f4ff",
+              "on-surface-variant": "#4d5b7c",
+              "surface-container-highest": "#d1d9e6",
+              "inverse-on-surface": "#f0f4ff",
+              "tertiary-fixed-dim": "#a3aec4",
+              outline: "#7a869a",
+              "error-container": "#ffdad6",
+              "on-primary-fixed": "#ffffff",
+              "surface-tint": "#081434",
+              "on-primary-fixed-variant": "#0c1d4a",
+              "surface-bright": "#f8faff",
+              "tertiary-fixed": "#ced4da",
+              primary: "#081434",
+              "primary-fixed-dim": "#1a2b5a",
+              "on-secondary-fixed": "#081434",
+              error: "#ba1a1a",
+              "secondary-fixed": "#d1d9e6",
+              background: "#ffffff",
+              "secondary-container": "#e0e4f0",
+              "inverse-surface": "#081434",
+              "inverse-primary": "#fcf4d9",
+              "on-secondary-fixed-variant": "#4d5b7c",
+              "on-tertiary-fixed-variant": "#4d5b7c",
+              "on-primary": "#ffffff",
+              secondary: "#4d5b7c",
+              "on-tertiary-container": "#081434",
+              "surface-container-high": "#eef2f7",
+              "outline-variant": "#d1d9e6",
+              "on-secondary": "#ffffff",
+              "surface-variant": "#e0e4f0",
+              surface: "#ffffff",
+              "secondary-fixed-dim": "#a3aec4",
+              "on-tertiary-fixed": "#D4AF37",
+              "on-secondary-container": "#081434",
+              "on-primary-container": "#D4AF37",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "section-gap": "120px",
+              "margin-mobile": "20px",
+              gutter: "24px",
+              base: "8px",
+              "container-max": "1280px",
+            },
+            fontFamily: {
+              "headline-lg": ["Plus Jakarta Sans"],
+              "headline-md": ["Plus Jakarta Sans"],
+              "body-md": ["Inter"],
+              "body-lg": ["Inter"],
+              "label-sm": ["Inter"],
+              "display-xl": ["Plus Jakarta Sans"],
+            },
+            fontSize: {
+              "headline-lg": ["40px", { lineHeight: "48px", letterSpacing: "-0.01em", fontWeight: "600" }],
+              "headline-md": ["32px", { lineHeight: "40px", fontWeight: "600" }],
+              "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+              "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+              "label-sm": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "500" }],
+              "display-xl": ["64px", { lineHeight: "72px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+      }
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        width: 28px;
+        height: 28px;
+        cursor: pointer;
+        z-index: 60;
+      }
+      .hamburger span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: #081434;
+        border-radius: 2px;
+        transition: all 0.35s cubic-bezier(0.77, 0, 0.175, 1);
+      }
+      .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+      .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      .mobile-menu-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(8, 20, 52, 0.4);
+        backdrop-filter: blur(4px);
+        z-index: 40;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.35s ease;
+      }
+      .mobile-menu-overlay.active { opacity: 1; pointer-events: auto; }
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 85%;
+        max-width: 360px;
+        height: 100dvh;
+        background: #ffffff;
+        z-index: 45;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        display: flex;
+        flex-direction: column;
+        padding: 100px 32px 40px;
+      }
+      .mobile-menu.active { transform: translateX(0); }
+      .mobile-menu a {
+        display: block;
+        padding: 16px 0;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        color: #081434;
+        border-bottom: 1px solid rgba(209, 217, 230, 0.5);
+        transition: all 0.2s;
+        text-decoration: none;
+      }
+      .mobile-menu a:hover { color: #D4AF37; padding-left: 8px; }
+      body.menu-open { overflow: hidden; }
+
+      .tab-container {
+        background: #f0f4ff;
+        padding: 4px;
+        border-radius: 1rem; /* rounded-2xl */
+        display: inline-flex;
+        gap: 4px;
+        border: 1px solid rgba(8, 20, 52, 0.05);
+      }
+      .tab-btn {
+        padding: 10px 24px;
+        border-radius: 0.75rem; /* rounded-xl */
+        font-weight: 600;
+        font-size: 14px;
+        color: #4d5b7c;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: none !important;
+        background: transparent;
+      }
+      .tab-btn.active {
+        background: #ffffff !important;
+        color: #081434 !important;
+        box-shadow: 0 4px 12px rgba(8, 20, 52, 0.08);
+      }
+      .tab-btn:not(.active):hover {
+        color: #081434;
+        background: rgba(255, 255, 255, 0.5);
+      }
+
+      .course-card {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .course-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(8, 20, 52, 0.06);
+      }
+
+      @media (max-width: 767px) {
+        .tab-container {
+          flex-wrap: wrap;
+          border-radius: 1rem;
+          justify-content: center;
+          width: 100%;
+        }
+        .tab-btn {
+          flex: 1 1 calc(50% - 8px);
+          padding: 8px 12px;
+          font-size: 12px;
+        }
+      }
+
+      /* Premium Search Focus */
+      #course-search:focus {
+        border-color: #D4AF37;
+        box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1), 0 8px 24px rgba(8, 20, 52, 0.04);
+        outline: none;
+      }
+
+      @media (max-width: 767px) {
+        .hamburger { display: flex; }
+      }
+    </style>
+  </head>
+  <body class="bg-surface-container-lowest text-on-surface font-body-md antialiased overflow-x-hidden">
+    <!-- Navigation -->
+    <header class="fixed top-0 w-full z-50 transition-all duration-300 px-6 py-6" id="navbar">
+      <div class="glass-effect rounded-full px-8 py-4 max-w-container-max mx-auto flex justify-between items-center shadow-[0_8px_32px_rgba(0,0,0,0.04)]">
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="logo.png" alt="Kingsland Logo" class="h-9 w-auto object-contain block" />
+          <span class="text-[20px] font-bold text-primary tracking-tight leading-none pt-0.5">Kingsland</span>
+        </a>
+        <nav class="hidden md:flex gap-8 font-headline-md text-[14px] font-medium">
+          <a class="text-on-surface hover:text-primary-container transition-colors relative" href="index.html">Home</a>
+          <a class="text-on-surface-variant hover:text-primary-container transition-colors relative" href="index.html#about">About Us</a>
+          <a class="text-on-surface-variant hover:text-primary-container transition-colors relative font-bold text-primary" href="courses.html">Courses</a>
+          <a class="text-on-surface-variant hover:text-primary-container transition-colors relative" href="index.html#services">Services</a>
+          <a class="text-on-surface-variant hover:text-primary-container transition-colors relative" href="contact.html">Contact</a>
+        </nav>
+        <button class="hamburger" id="hamburger-btn">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-overlay"></div>
+    <nav class="mobile-menu" id="mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About Us</a>
+      <a href="courses.html">Courses</a>
+      <a href="index.html#services">Services</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+
+    <main class="pt-32">
+      <!-- Courses Hero -->
+      <section class="py-12 px-gutter bg-surface-container-low/30">
+        <div class="max-w-container-max mx-auto text-center">
+          <h1 class="font-display-xl text-4xl md:text-5xl mb-4 text-primary">Explore Our Courses</h1>
+          <p class="text-lg text-on-surface-variant max-w-2xl mx-auto font-light mb-10">
+            Find the perfect program to architect your future and achieve global recognition.
+          </p>
+          
+          <!-- Search & Tabs Container -->
+          <div class="max-w-4xl mx-auto space-y-8">
+            <!-- Search Bar -->
+            <div class="relative group">
+              <span class="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors text-xl">search</span>
+              <input 
+                type="text" 
+                id="course-search"
+                placeholder="Search for courses (e.g. MBA, BBA...)" 
+                class="w-full pl-14 pr-6 py-4 rounded-2xl border-outline-variant transition-all shadow-sm text-base bg-white"
+              >
+            </div>
+
+            <!-- Tabs -->
+            <div class="tab-container" id="tab-container">
+              <button class="tab-btn active" data-filter="all">All Courses</button>
+              <button class="tab-btn" data-filter="ug">UG</button>
+              <button class="tab-btn" data-filter="pg-mba">MBA</button>
+              <button class="tab-btn" data-filter="pg-general">Postgraduate</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Course Grid -->
+      <section class="py-12 px-gutter">
+        <div class="max-w-container-max mx-auto">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="course-grid">
+            <!-- Course cards will be injected here by JS -->
+          </div>
+          
+          <!-- Empty State -->
+          <div id="empty-state" class="hidden text-center py-20">
+            <span class="material-symbols-outlined text-6xl text-on-surface-variant/30 mb-4">search_off</span>
+            <h3 class="text-2xl font-semibold text-primary">No courses found</h3>
+            <p class="text-on-surface-variant">Try adjusting your search or filters</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-surface-container-lowest border-t border-outline-variant pt-20 pb-10">
+      <div class="max-w-container-max mx-auto px-gutter text-center">
+        <div class="mb-12">
+          <div class="flex items-center justify-center gap-3 mb-6">
+            <img src="logo.png" alt="Kingsland Logo" class="h-11 w-auto" />
+            <span class="text-xl font-bold text-primary tracking-tight">Kingsland</span>
+          </div>
+          <div class="space-y-2 mb-8">
+            <p class="text-on-surface font-bold text-sm uppercase tracking-wider">Head Office Dubai, UAE</p>
+            <p class="text-on-surface-variant font-light text-sm max-w-sm mx-auto">Level 3, 3rd Floor, BurJuman Mall Dubai, United Arab Emirates</p>
+            <p class="text-on-surface-variant font-light text-sm pt-2">
+              <a href="tel:+971523212044" class="hover:text-primary transition-colors">+971 52 321 2044</a> | 
+              <a href="mailto:info@kingslandeducation.com" class="hover:text-primary transition-colors">info@kingslandeducation.com</a>
+            </p>
+          </div>
+          <div class="flex items-center justify-center gap-4">
+             <a href="https://www.instagram.com/kingslandinternational?igsh=a2N5cWR6N2V6cXpq&utm_source=qr" target="_blank" class="w-10 h-10 rounded-full bg-surface-bright flex items-center justify-center text-on-surface-variant hover:text-primary transition-all border border-outline-variant shadow-sm">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689-1.689 4.948 0 3.259.014 3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+             </a>
+             <span class="text-on-surface-variant font-light text-sm">Follow us on Instagram</span>
+          </div>
+        </div>
+        <div class="pt-10 border-t border-outline-variant text-sm font-light opacity-60">
+          © 2024 Kingsland International. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const courses = [
+        // Undergraduate (UG)
+        { id: 1, type: 'ug', title: 'Online BBA', subtitle: 'Bachelor of Business Administration', description: 'Master the fundamentals of business management and leadership in a global context.', icon: 'business_center' },
+        { id: 2, type: 'ug', title: 'Online BCA', subtitle: 'Bachelor of Computer Applications', description: 'Build a strong foundation in computer science, software development, and modern technologies.', icon: 'code' },
+        { id: 3, type: 'ug', title: 'Online BCOM', subtitle: 'Bachelor of Commerce', description: 'Gain comprehensive knowledge in accounting, finance, and trade operations.', icon: 'account_balance' },
+        { id: 4, type: 'ug', title: 'Online BA', subtitle: 'Bachelor of Arts', description: 'Explore diverse perspectives in humanities and social sciences for a well-rounded education.', icon: 'palette' },
+        { id: 5, type: 'ug', title: 'Online Bsc', subtitle: 'Bachelor of Science', description: 'Deep dive into scientific principles and research-based learning across various disciplines.', icon: 'science' },
+        { id: 6, type: 'ug', title: 'Online Btech', subtitle: 'Bachelor of Technology', description: 'Technical excellence through hands-on engineering principles and innovation.', icon: 'engineering' },
+        
+        // MBA Dual Specializations
+        { id: 7, type: 'pg-mba', title: 'Online MBA Marketing & IT', subtitle: 'MBA Dual Specialization', description: 'Bridge the gap between strategic marketing and modern information technology.', icon: 'trending_up' },
+        { id: 8, type: 'pg-mba', title: 'Online MBA Marketing & HR', subtitle: 'MBA Dual Specialization', description: 'Develop expertise in brand management and human resource strategies.', icon: 'groups' },
+        { id: 9, type: 'pg-mba', title: 'Online MBA HR & IT', subtitle: 'MBA Dual Specialization', description: 'Optimize people management through the power of digital transformation.', icon: 'manage_accounts' },
+        { id: 10, type: 'pg-mba', title: 'Online MBA Marketing & Finance', subtitle: 'MBA Dual Specialization', description: 'Master market analytics alongside corporate financial management.', icon: 'payments' },
+        { id: 11, type: 'pg-mba', title: 'Online MBA HR & Finance', subtitle: 'MBA Dual Specialization', description: 'Balance organizational human capital with fiscal responsibility.', icon: 'account_balance_wallet' },
+        { id: 12, type: 'pg-mba', title: 'Online MBA Finance & IT', subtitle: 'MBA Dual Specialization', description: 'Pioneer the future of fintech through financial mastery and tech expertise.', icon: 'monitoring' },
+        
+        // General Master's Degrees
+        { id: 13, type: 'pg-general', title: 'Online Masters of Science (MSc)', subtitle: 'Postgraduate Program', description: 'Advanced scientific training and specialized research in your chosen field.', icon: 'psychology' },
+        { id: 14, type: 'pg-general', title: 'Online Master of Arts (MA)', subtitle: 'Postgraduate Program', description: 'Deepen your understanding of humanities and creative disciplines.', icon: 'history_edu' },
+        { id: 15, type: 'pg-general', title: 'Online MCOM', subtitle: 'Postgraduate Program', description: 'Expert-level training in advanced commerce, taxation, and business law.', icon: 'analytics' },
+        { id: 16, type: 'pg-general', title: 'Online MSW', subtitle: 'Postgraduate Program', description: 'Dedicated training for high-impact social work and community development.', icon: 'volunteer_activism' },
+        { id: 17, type: 'pg-general', title: 'Online Mtech', subtitle: 'Postgraduate Program', description: 'Specialized technical expertise for leadership in the engineering sector.', icon: 'developer_board' }
+      ];
+
+      const WHATSAPP_LINK = "https://wa.me/971523212044";
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const grid = document.getElementById('course-grid');
+        const searchInput = document.getElementById('course-search');
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const emptyState = document.getElementById('empty-state');
+        const hamburgerBtn = document.getElementById("hamburger-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const mobileOverlay = document.getElementById("mobile-overlay");
+
+        let currentFilter = 'all';
+        let searchQuery = '';
+
+        function renderCourses() {
+          const filtered = courses.filter(c => {
+            const matchesFilter = currentFilter === 'all' || c.type === currentFilter;
+            const matchesSearch = c.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                                 c.subtitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                 c.description.toLowerCase().includes(searchQuery.toLowerCase());
+            return matchesFilter && matchesSearch;
+          });
+
+          grid.innerHTML = filtered.map(c => `
+            <div class="course-card bg-white border border-outline-variant p-6 rounded-[24px] flex flex-col h-full">
+              <div class="w-12 h-12 rounded-xl bg-tertiary-container/30 flex items-center justify-center mb-5">
+                <span class="material-symbols-outlined text-tertiary text-2xl">${c.icon}</span>
+              </div>
+              <h3 class="text-xl font-bold text-primary mb-1">${c.title}</h3>
+              <p class="text-[10px] font-bold text-tertiary uppercase tracking-widest mb-3">${c.subtitle}</p>
+              <p class="text-sm text-on-surface-variant font-light leading-relaxed mb-6 flex-grow">
+                ${c.description}
+              </p>
+              <a href="${WHATSAPP_LINK}" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-primary text-white rounded-xl font-bold text-sm hover:bg-on-primary-fixed-variant transition-all group">
+                Learn More
+                <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </a>
+            </div>
+          `).join('');
+
+          emptyState.classList.toggle('hidden', filtered.length > 0);
+          
+          // Animate cards on render
+          gsap.killTweensOf(".course-card"); // Stop any ongoing animations
+          gsap.fromTo(".course-card", 
+            { y: 20, opacity: 0 },
+            { 
+              y: 0, 
+              opacity: 1, 
+              duration: 0.5, 
+              stagger: 0.04, 
+              ease: "power2.out",
+              clearProps: "all" // Ensure no inline styles left that might cause issues
+            }
+          );
+        }
+
+        // Search event
+        searchInput.addEventListener('input', (e) => {
+          searchQuery = e.target.value;
+          renderCourses();
+        });
+
+        // Tab events
+        tabBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            tabBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentFilter = btn.dataset.filter;
+            renderCourses();
+          });
+        });
+
+        // Mobile Menu Toggle
+        function toggleMenu(force = null) {
+          const isOpen = force !== null ? force : !hamburgerBtn.classList.contains("active");
+          hamburgerBtn.classList.toggle("active", isOpen);
+          mobileMenu.classList.toggle("active", isOpen);
+          mobileOverlay.classList.toggle("active", isOpen);
+          document.body.classList.toggle("menu-open", isOpen);
+        }
+
+        hamburgerBtn.addEventListener("click", () => toggleMenu());
+        mobileOverlay.addEventListener("click", () => toggleMenu(false));
+
+        // Initial render
+        renderCourses();
+
+        // Deep Link Handling
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchParam = urlParams.get('search');
+        const categoryParam = urlParams.get('category');
+
+        if (categoryParam) {
+          const targetBtn = Array.from(tabBtns).find(btn => btn.dataset.filter === categoryParam);
+          if (targetBtn) {
+            targetBtn.click();
+          }
+        } else if (searchParam) {
+          searchInput.value = searchParam;
+          searchQuery = searchParam;
+          renderCourses();
+        }
+      });
+    </script>
+  </body>
+</html>
