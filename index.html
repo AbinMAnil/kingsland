@@ -174,13 +174,6 @@
         top: 120px;
       }
 
-      @media (max-width: 1024px) {
-        .sticky-side {
-          position: relative;
-          top: 0;
-        }
-      }
-
       .college-card {
         border: 1px solid rgba(0, 0, 0, 0.05);
         transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -190,6 +183,199 @@
         transform: translateY(-8px);
         box-shadow: 0 32px 64px rgba(0, 0, 0, 0.08);
         border-color: rgba(95, 51, 225, 0.2);
+      }
+
+      /* ===== Hamburger Menu ===== */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        width: 28px;
+        height: 28px;
+        cursor: pointer;
+        z-index: 60;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .hamburger span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: #081434;
+        border-radius: 2px;
+        transition: all 0.35s cubic-bezier(0.77, 0, 0.175, 1);
+        transform-origin: center;
+      }
+      .hamburger.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+      .hamburger.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      /* Mobile Menu Overlay */
+      .mobile-menu-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(8, 20, 52, 0.4);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        z-index: 40;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.35s ease;
+      }
+      .mobile-menu-overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      /* Mobile Menu Panel */
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 85%;
+        max-width: 360px;
+        height: 100dvh;
+        background: #ffffff;
+        z-index: 45;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        display: flex;
+        flex-direction: column;
+        padding: 100px 32px 40px;
+        box-shadow: -16px 0 48px rgba(0, 0, 0, 0.12);
+        overflow-y: auto;
+      }
+      .mobile-menu.active {
+        transform: translateX(0);
+      }
+      .mobile-menu a {
+        display: block;
+        padding: 16px 0;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        color: #081434;
+        border-bottom: 1px solid rgba(209, 217, 230, 0.5);
+        transition: color 0.2s, padding-left 0.2s;
+        text-decoration: none;
+      }
+      .mobile-menu a:hover,
+      .mobile-menu a:active {
+        color: #D4AF37;
+        padding-left: 8px;
+      }
+      .mobile-menu .mobile-cta {
+        margin-top: auto;
+        padding: 16px 32px;
+        background: #081434;
+        color: #fff;
+        text-align: center;
+        border-radius: 9999px;
+        font-weight: 700;
+        font-size: 15px;
+        border: none;
+        letter-spacing: 0.02em;
+        transition: background 0.3s;
+      }
+      .mobile-menu .mobile-cta:hover {
+        background: #0c1d4a;
+      }
+
+      body.menu-open {
+        overflow: hidden;
+      }
+
+      /* ===== Mobile Responsive Overrides ===== */
+      @media (max-width: 1024px) {
+        .sticky-side {
+          position: relative;
+          top: 0;
+        }
+      }
+
+      @media (max-width: 767px) {
+        :root {
+          --section-gap: 80px;
+          --gutter: 24px;
+        }
+
+        /* Typography */
+        .font-headline-lg { font-size: 32px !important; line-height: 1.2 !important; }
+        .font-display-xl { font-size: 40px !important; line-height: 1.1 !important; }
+        .font-body-lg { font-size: 16px !important; }
+        .text-\[56px\], .text-\[64px\], .text-\[72px\], .text-\[44px\] { 
+          font-size: 28px !important; 
+          line-height: 1.15 !important; 
+        }
+
+        /* Layout & Spacing */
+        .py-section-gap { padding-top: 60px; padding-bottom: 60px; }
+        .px-gutter { padding-left: 20px; padding-right: 20px; }
+        .gap-20 { gap: 40px; }
+        .mb-20 { margin-bottom: 40px; }
+
+        /* Header */
+        #navbar { padding: 8px 0; }
+        #navbar > div { padding: 12px 20px; }
+        .hamburger { display: flex; }
+
+        /* Hero */
+        #hero { min-height: 600px; padding-top: 120px !important; }
+        #hero .font-display-xl.text-\[44px\] { font-size: 32px !important; }
+        #hero .grid { display: block; }
+        #hero h1 { font-size: 42px !important; margin-bottom: 24px; }
+        #hero p { font-size: 16px !important; }
+
+        /* About & Stats */
+        #about .h-\[800px\] { height: 350px !important; }
+        #about .grid-cols-3 { grid-template-columns: repeat(1, 1fr); gap: 32px; border-top: none; padding-top: 0; }
+        #about .glass-effect { 
+          bottom: 20px !important; left: 20px !important; right: 20px !important; 
+          max-width: none !important; padding: 24px !important; 
+        }
+
+        /* Why Us */
+        .why-us-card div { transform: none !important; margin-bottom: 12px !important; }
+        #why-us .grid { gap: 16px; }
+
+        /* Core Values */
+        #values .grid { grid-template-columns: repeat(1, 1fr); gap: 16px; perspective: none !important; }
+        .value-card { 
+          transform: none !important; 
+          opacity: 1 !important; 
+          visibility: visible !important; 
+        }
+
+        /* Colleges & Services */
+        .college-card .h-\[400px\] { height: 240px !important; }
+        .college-card h3, #services h3 { font-size: 22px !important; }
+        .college-card .p-10 { padding: 24px !important; }
+        #services .h-\[600px\] { height: 380px !important; }
+
+        /* CTA */
+        #cta { padding: 80px 20px !important; }
+        #cta .flex-row { flex-direction: column; text-align: center; gap: 40px; }
+        #cta h2 { font-size: 36px !important; }
+
+        /* Footer */
+        footer .grid { grid-template-columns: repeat(1, 1fr) !important; gap: 40px; }
+        footer .pt-20 { padding-top: 40px !important; }
+        footer .p-10 { padding: 24px !important; }
+      }
+
+      @media (max-width: 480px) {
+        #hero h1 { font-size: 36px !important; }
+        .font-headline-lg { font-size: 28px !important; }
+        #about .glass-effect { padding: 20px !important; }
+        #about .text-\[64px\] { font-size: 28px !important; }
+        #about .tracking-widest { font-size: 10px; letter-spacing: 0.08em; }
       }
     </style>
   </head>
@@ -208,7 +394,7 @@
           class="font-display-xl text-2xl font-bold tracking-tight text-on-surface flex items-center gap-2"
         >
           <img
-            src="../logo.png"
+            src="logo.png"
             alt="Kingsland Logo"
             class="h-10 w-auto object-contain"
           />
@@ -253,8 +439,29 @@
         >
           Contact Us
         </a>
+        <!-- Hamburger (mobile only) -->
+        <button class="hamburger" id="hamburger-btn" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-overlay"></div>
+
+    <!-- Mobile Menu Panel -->
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+      <a href="#hero" class="mobile-nav-link">Home</a>
+      <a href="#about" class="mobile-nav-link">About Us</a>
+      <a href="#why-us" class="mobile-nav-link">Why Us</a>
+      <a href="#services" class="mobile-nav-link">Services</a>
+      <a href="#collaborated-colleges" class="mobile-nav-link">Partnerships</a>
+      <a href="#process" class="mobile-nav-link">Process</a>
+      <a href="#cta" class="mobile-cta mobile-nav-link">Contact Us</a>
+    </nav>
+
     <main>
       <!-- Hero Section (Redesigned) -->
       <section
@@ -1690,7 +1897,7 @@
               class="font-display-xl text-2xl font-bold tracking-tight text-on-surface flex items-center gap-2 mb-6"
             >
               <img
-                src="../logo.png"
+                src="logo.png"
                 alt="Kingsland Logo"
                 class="h-10 w-auto object-contain"
               />
@@ -2089,6 +2296,34 @@
     </footer>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
+        // Mobile Menu Logic
+        const hamburgerBtn = document.getElementById("hamburger-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const mobileOverlay = document.getElementById("mobile-overlay");
+        const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+
+        function toggleMenu(force = null) {
+          const isOpen = force !== null ? force : !hamburgerBtn.classList.contains("active");
+          hamburgerBtn.classList.toggle("active", isOpen);
+          mobileMenu.classList.toggle("active", isOpen);
+          mobileOverlay.classList.toggle("active", isOpen);
+          document.body.classList.toggle("menu-open", isOpen);
+          hamburgerBtn.setAttribute("aria-expanded", isOpen);
+        }
+
+        if (hamburgerBtn) {
+          hamburgerBtn.addEventListener("click", () => toggleMenu());
+        }
+
+        if (mobileOverlay) {
+          mobileOverlay.addEventListener("click", () => toggleMenu(false));
+        }
+
+        mobileNavLinks.forEach((link) => {
+          link.addEventListener("click", () => toggleMenu(false));
+        });
+
+        // Hero Typewriter Animation Logic
         const leftEl = document.getElementById("hero-typing-left");
         const rightEl = document.getElementById("hero-typing-right");
         if (!leftEl || !rightEl) return;
@@ -2104,34 +2339,21 @@
 
         function type() {
           const currentPhrase = phrases[phraseIndex];
-          const totalLen =
-            currentPhrase.left.length + currentPhrase.right.length;
+          const totalLen = currentPhrase.left.length + currentPhrase.right.length;
 
           if (isDeleting) {
             if (charIndex > currentPhrase.left.length) {
-              rightEl.textContent = currentPhrase.right.substring(
-                0,
-                charIndex - currentPhrase.left.length - 1,
-              );
+              rightEl.textContent = currentPhrase.right.substring(0, charIndex - currentPhrase.left.length - 1);
             } else {
               rightEl.textContent = "";
-              leftEl.textContent = currentPhrase.left.substring(
-                0,
-                charIndex - 1,
-              );
+              leftEl.textContent = currentPhrase.left.substring(0, charIndex - 1);
             }
             charIndex--;
           } else {
             if (charIndex < currentPhrase.left.length) {
-              leftEl.textContent = currentPhrase.left.substring(
-                0,
-                charIndex + 1,
-              );
+              leftEl.textContent = currentPhrase.left.substring(0, charIndex + 1);
             } else {
-              rightEl.textContent = currentPhrase.right.substring(
-                0,
-                charIndex - currentPhrase.left.length + 1,
-              );
+              rightEl.textContent = currentPhrase.right.substring(0, charIndex - currentPhrase.left.length + 1);
             }
             charIndex++;
           }
@@ -2139,55 +2361,38 @@
           let typeSpeed = isDeleting ? 40 : 80;
 
           if (!isDeleting && charIndex >= totalLen) {
-            typeSpeed = 3500; // Pause at end of phrase
+            typeSpeed = 3500;
             isDeleting = true;
           } else if (isDeleting && charIndex <= 0) {
             isDeleting = false;
             phraseIndex = (phraseIndex + 1) % phrases.length;
-            typeSpeed = 800; // Pause before typing new phrase
+            typeSpeed = 800;
           }
 
           setTimeout(type, typeSpeed);
         }
 
-        setTimeout(type, 1000); // Initial pause
+        setTimeout(type, 1000);
 
-        // Count Up Animation for the statistics section
+        // GSAP Animations
         gsap.registerPlugin(ScrollTrigger);
 
         // Global Reveal on Scroll
         const revealElements = document.querySelectorAll(".reveal-on-scroll");
         revealElements.forEach((el) => {
-          gsap.fromTo(
-            el,
-            { y: 60, opacity: 0 },
-            {
-              y: 0,
-              opacity: 1,
-              duration: 1.2,
-              ease: "power3.out",
-              scrollTrigger: {
-                trigger: el,
-                start: "top 85%",
-                once: true,
-              },
-            },
-          );
+          gsap.fromTo(el, { y: 60, opacity: 0 }, {
+            y: 0, opacity: 1, duration: 1.2, ease: "power3.out",
+            scrollTrigger: { trigger: el, start: "top 85%", once: true }
+          });
         });
 
         const counters = document.querySelectorAll(".count-up");
         counters.forEach((counter) => {
           const target = parseInt(counter.getAttribute("data-target"));
           gsap.to(counter, {
-            innerHTML: target,
-            duration: 2.5,
-            ease: "power2.out",
+            innerHTML: target, duration: 2.5, ease: "power2.out",
             snap: { innerHTML: 1 },
-            scrollTrigger: {
-              trigger: counter,
-              start: "top 85%",
-              once: true,
-            },
+            scrollTrigger: { trigger: counter, start: "top 85%", once: true }
           });
         });
 
@@ -2195,129 +2400,56 @@
         const whyUsCards = document.querySelectorAll(".why-us-card");
         if (whyUsCards.length === 6) {
           const directions = [
-            { x: -150, y: 0 }, // 1 from left
-            { x: 0, y: -150 }, // 2 from top
-            { x: 150, y: 0 }, // 3 from right
-            { x: -150, y: 0 }, // 4 from left
-            { x: 0, y: 150 }, // 5 from bottom
-            { x: 150, y: 0 }, // 6 from right
+            { x: -150, y: 0 }, { x: 0, y: -150 }, { x: 150, y: 0 },
+            { x: -150, y: 0 }, { x: 0, y: 150 }, { x: 150, y: 0 }
           ];
 
           whyUsCards.forEach((card, i) => {
-            gsap.fromTo(
-              card,
-              {
-                x: directions[i].x,
-                y: directions[i].y,
-                opacity: 0,
-              },
-              {
-                x: 0,
-                y: 0,
-                opacity: 1,
-                duration: 1.5,
-                ease: "power3.out",
-                scrollTrigger: {
-                  trigger: "#why-us",
-                  start: "top 60%",
-                  toggleActions: "play none none none",
-                },
-                delay: i * 0.15,
-              },
-            );
+            gsap.fromTo(card, { x: directions[i].x, y: directions[i].y, opacity: 0 }, {
+              x: 0, y: 0, opacity: 1, duration: 1.5, ease: "power3.out",
+              scrollTrigger: { trigger: "#why-us", start: "top 60%", toggleActions: "play none none none" },
+              delay: i * 0.15
+            });
           });
         }
 
         // Service Cards Animation
         const serviceCards = document.querySelectorAll(".service-card");
         if (serviceCards.length > 0) {
-          gsap.fromTo(
-            serviceCards,
-            { y: 150, opacity: 0 },
-            {
-              y: 0,
-              opacity: 1,
-              duration: 1.5,
-              ease: "power3.out",
-              stagger: 0.2,
-              scrollTrigger: {
-                trigger: "#services",
-                start: "top 65%",
-                toggleActions: "play none none none",
-              },
-            },
-          );
+          gsap.fromTo(serviceCards, { y: 150, opacity: 0 }, {
+            y: 0, opacity: 1, duration: 1.5, ease: "power3.out", stagger: 0.2,
+            scrollTrigger: { trigger: "#services", start: "top 65%", toggleActions: "play none none none" }
+          });
         }
 
         // Hero Cards Levitating Animation
         const levitateCards = [
-          {
-            selector: ".hero-levitate-card-1",
-            y: -12,
-            rotation: 16,
-            duration: 3,
-          },
-          {
-            selector: ".hero-levitate-card-2",
-            y: 10,
-            rotation: -10,
-            duration: 3.5,
-          },
-          {
-            selector: ".hero-levitate-card-3",
-            y: -15,
-            rotation: 20,
-            duration: 4,
-          },
-          {
-            selector: ".hero-levitate-card-4",
-            y: 8,
-            rotation: -6,
-            duration: 3.2,
-          },
+          { selector: ".hero-levitate-card-1", y: -12, rotation: 16, duration: 3 },
+          { selector: ".hero-levitate-card-2", y: 10, rotation: -10, duration: 3.5 },
+          { selector: ".hero-levitate-card-3", y: -15, rotation: 20, duration: 4 },
+          { selector: ".hero-levitate-card-4", y: 8, rotation: -6, duration: 3.2 }
         ];
 
         levitateCards.forEach((card) => {
           gsap.to(card.selector, {
-            y: card.y,
-            rotation: card.rotation,
-            duration: card.duration,
-            ease: "sine.inOut",
-            repeat: -1,
-            yoyo: true,
+            y: card.y, rotation: card.rotation, duration: card.duration,
+            ease: "sine.inOut", repeat: -1, yoyo: true
           });
         });
 
-        // Core Values Unrolling Animation
-        const valueCards = document.querySelectorAll(".value-card");
-        if (valueCards.length > 0) {
-          valueCards.forEach((card, i) => {
-            gsap.fromTo(
-              card,
-              {
-                rotationX: -100,
-                transformOrigin: "top center",
-                opacity: 0,
-                z: -200,
-                scale: 0.9,
-              },
-              {
-                rotationX: 0,
-                opacity: 1,
-                z: 0,
-                scale: 1,
-                duration: 1.5,
-                ease: "power4.out",
-                scrollTrigger: {
-                  trigger: card,
-                  start: "top 95%",
-                  end: "top 65%",
-                  scrub: 1.5,
-                  toggleActions: "play none none none",
-                },
-              },
-            );
-          });
+        // Core Values Animation (Desktop Only)
+        if (window.innerWidth > 768) {
+          const valueCards = document.querySelectorAll(".value-card");
+          if (valueCards.length > 0) {
+            valueCards.forEach((card, i) => {
+              gsap.fromTo(card, {
+                rotationX: -100, transformOrigin: "top center", opacity: 0, z: -200, scale: 0.9
+              }, {
+                rotationX: 0, opacity: 1, z: 0, scale: 1, duration: 1.5, ease: "power4.out",
+                scrollTrigger: { trigger: card, start: "top 95%", end: "top 65%", scrub: 1.5 }
+              });
+            });
+          }
         }
       });
     </script>
