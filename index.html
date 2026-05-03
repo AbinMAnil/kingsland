@@ -658,7 +658,7 @@
       id="navbar"
     >
       <div
-        class="glass-effect rounded-full px-5 py-3 md:px-8 md:py-4 max-w-container-max mx-auto flex justify-between items-center shadow-[0_12px_40px_rgba(0,0,0,0.06)] border border-white/40"
+        class="glass-effect rounded-none md:rounded-full md:mt-5 px-5 py-3 md:px-8 md:py-4 max-w-container-max mx-auto flex justify-between items-center shadow-[0_12px_40px_rgba(0,0,0,0.06)] border border-white/40"
       >
         <div
           class="font-display-xl text-2xl font-bold tracking-tight text-on-surface flex items-center gap-3"
@@ -708,23 +708,63 @@
             >Process</a
           >
         </nav>
-        <a
-          href="contact.html"
-          class="bg-on-surface text-white px-8 py-3 rounded-full font-headline-md text-[15px] font-semibold hover:bg-primary-container transition-all duration-300 shadow-[0_4px_14px_rgba(0,0,0,0.1)] hover:shadow-[0_4px_20px_rgba(95,51,225,0.3)] hidden md:block text-center"
-        >
-          Contact Us
-        </a>
-        <!-- Hamburger (mobile only) -->
-        <button
-          class="hamburger"
-          id="hamburger-btn"
-          aria-label="Open menu"
-          aria-expanded="false"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        <!-- Desktop: Contact Us + WhatsApp grouped -->
+        <div class="hidden md:flex items-center gap-2">
+          <a
+            href="contact.html"
+            class="bg-on-surface text-white px-8 py-3 rounded-full font-headline-md text-[15px] font-semibold hover:bg-primary-container transition-all duration-300 shadow-[0_4px_14px_rgba(0,0,0,0.1)] text-center"
+          >
+            Contact Us
+          </a>
+          <a
+            href="https://wa.me/971523212044"
+            target="_blank"
+            class="bg-[#081434] text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-[#0c1d4a] transition-all duration-300 shadow-[0_4px_14px_rgba(0,0,0,0.15)] flex-shrink-0"
+            aria-label="WhatsApp"
+          >
+            <svg
+              class="w-6 h-6"
+              viewBox="0 0 24 24"
+              fill="white"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.978-1.418A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.95 7.95 0 01-4.054-1.107l-.29-.173-2.953.841.857-2.875-.19-.295A7.955 7.955 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8zm4.406-5.872c-.242-.121-1.432-.707-1.653-.787-.222-.08-.383-.12-.545.12-.162.242-.627.787-.769.949-.141.161-.283.181-.525.06-.242-.12-1.022-.377-1.947-1.201-.719-.642-1.205-1.434-1.346-1.677-.141-.242-.015-.373.106-.493.109-.109.242-.283.363-.424.121-.141.161-.242.242-.403.08-.162.04-.303-.02-.424-.061-.121-.545-1.314-.747-1.799-.197-.473-.397-.409-.545-.417l-.464-.008a.891.891 0 00-.646.303c-.222.242-.847.828-.847 2.02s.867 2.343.988 2.505c.12.161 1.706 2.605 4.133 3.652.578.25 1.029.399 1.38.51.58.184 1.108.158 1.525.096.465-.069 1.432-.585 1.634-1.151.202-.565.202-1.049.141-1.151-.06-.102-.222-.162-.463-.283z"
+              />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Mobile: WhatsApp + Hamburger grouped -->
+        <div class="md:hidden flex items-center gap-2 ml-auto">
+          <a
+            href="https://wa.me/971523212044"
+            target="_blank"
+            class="bg-[#081434] text-white w-11 h-11 rounded-full flex items-center justify-center shadow-md flex-shrink-0"
+            aria-label="WhatsApp"
+          >
+            <svg
+              class="w-5 h-5"
+              viewBox="0 0 24 24"
+              fill="white"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.978-1.418A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.95 7.95 0 01-4.054-1.107l-.29-.173-2.953.841.857-2.875-.19-.295A7.955 7.955 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8zm4.406-5.872c-.242-.121-1.432-.707-1.653-.787-.222-.08-.383-.12-.545.12-.162.242-.627.787-.769.949-.141.161-.283.181-.525.06-.242-.12-1.022-.377-1.947-1.201-.719-.642-1.205-1.434-1.346-1.677-.141-.242-.015-.373.106-.493.109-.109.242-.283.363-.424.121-.141.161-.242.242-.403.08-.162.04-.303-.02-.424-.061-.121-.545-1.314-.747-1.799-.197-.473-.397-.409-.545-.417l-.464-.008a.891.891 0 00-.646.303c-.222.242-.847.828-.847 2.02s.867 2.343.988 2.505c.12.161 1.706 2.605 4.133 3.652.578.25 1.029.399 1.38.51.58.184 1.108.158 1.525.096.465-.069 1.432-.585 1.634-1.151.202-.565.202-1.049.141-1.151-.06-.102-.222-.162-.463-.283z"
+              />
+            </svg>
+          </a>
+          <button
+            class="hamburger"
+            id="hamburger-btn"
+            aria-label="Open menu"
+            aria-expanded="false"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </div>
     </header>
 
@@ -753,15 +793,20 @@
 
         <!-- Big Background Text -->
         <div
-          class="absolute top-[20%] left-0 w-full flex justify-center pointer-events-none z-0 overflow-hidden"
+          class="absolute inset-0 w-full h-full flex justify-center items-center md:items-start md:pt-[20%] pointer-events-none z-0 overflow-hidden px-4"
         >
           <div
-            class="font-display-xl font-bold text-primary/[0.06] tracking-tighter leading-none flex items-center"
-            style="font-size: clamp(80px, 13vw, 240px)"
+            class="font-display-xl font-bold text-primary/[0.12] md:text-primary/[0.08] tracking-tighter leading-[0.8] text-center w-full break-words"
+            style="
+              font-size: clamp(64px, 20vw, 240px);
+              word-break: break-word;
+              overflow-wrap: break-word;
+              text-transform: uppercase;
+            "
           >
-            <span id="hero-typing-combined"></span>
-            <span
-              class="w-[0.06em] bg-primary/[0.1] animate-pulse ml-2 lg:ml-4 h-[0.8em]"
+            <span id="hero-typing-combined"></span
+            ><span
+              class="w-[0.06em] bg-primary/[0.15] animate-pulse ml-1 inline-block h-[0.75em] align-middle"
             ></span>
           </div>
         </div>
@@ -783,11 +828,11 @@
 
         <!-- Content at the bottom -->
         <div
-          class="relative z-20 max-w-container-max mx-auto px-gutter w-full pb-12 lg:pb-16 flex flex-col md:flex-row justify-between items-end gap-10 mt-auto h-full"
+          class="relative z-20 max-w-container-max mx-auto px-gutter w-full pb-12 lg:pb-16 flex flex-col md:flex-row justify-between items-end gap-10 mt-auto h-full pointer-events-none md:pointer-events-auto"
         >
           <!-- Left side content: Floating Cards -->
           <div
-            class="relative w-[360px] h-[380px] hidden md:block z-30 mb-8 md:mb-12 reveal-on-scroll"
+            class="relative w-[360px] h-[380px] block z-30 mb-4 md:mb-12 reveal-on-scroll transform scale-[0.6] sm:scale-75 md:scale-100 origin-bottom-left md:origin-center pointer-events-auto"
           >
             <!-- Dotted connecting lines -->
             <svg
@@ -981,7 +1026,7 @@
                 <h3
                   class="font-display-xl text-[64px] font-bold leading-none mb-1 text-on-surface"
                 >
-                  30<span class="text-primary-container">/</span>
+                  30<span class="text-primary-container">+</span>
                 </h3>
                 <div
                   class="font-headline-md text-xs font-bold text-on-surface-variant mb-6 uppercase tracking-[0.2em]"
@@ -1838,7 +1883,7 @@
         ></div>
         <div class="max-w-container-max mx-auto px-gutter relative z-10">
           <div
-            class="flex flex-col md:flex-row justify-between items-end mb-20 reveal-on-scroll"
+            class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 md:gap-0 mb-20 reveal-on-scroll"
           >
             <div class="max-w-3xl space-y-4">
               <h2
@@ -1847,7 +1892,9 @@
                 Premium <br />Educational Services.
               </h2>
             </div>
-            <p class="text-xl text-on-surface-variant font-light max-w-lg mb-4">
+            <p
+              class="text-xl text-on-surface-variant font-light max-w-lg md:mb-4"
+            >
               Comprehensive, high-end solutions designed exclusively for
               international academic success.
             </p>
@@ -1969,14 +2016,16 @@
           </div>
           <!-- Timeline Line -->
           <div
-            class="absolute left-1/2 -translate-x-1/2 top-[300px] bottom-0 w-[1px] bg-gradient-to-b from-primary-container via-black/10 to-transparent hidden md:block"
+            class="absolute left-8 md:left-1/2 -translate-x-1/2 top-[180px] md:top-[300px] bottom-0 w-[1px] bg-gradient-to-b from-primary-container via-black/10 to-transparent"
           ></div>
           <div class="space-y-24">
             <!-- Step 1 -->
             <div
-              class="relative flex flex-col md:flex-row items-center justify-between reveal-on-scroll group"
+              class="relative flex flex-col md:flex-row items-center justify-between reveal-on-scroll group pl-20 md:pl-0"
             >
-              <div class="md:w-5/12 text-right md:pr-12 mb-8 md:mb-0">
+              <div
+                class="md:w-5/12 w-full text-left md:text-right md:pr-12 mb-8 md:mb-0"
+              >
                 <h3 class="font-headline-md text-3xl text-on-surface mb-3">
                   Consultation
                 </h3>
@@ -1986,13 +2035,14 @@
                 </p>
               </div>
               <div
-                class="absolute left-1/2 -translate-x-1/2 w-16 h-16 rounded-full glass-effect border border-outline-variant flex items-center justify-center z-10 group-hover:border-primary-container group-hover:scale-110 transition-all bg-surface-container-lowest hidden md:flex shadow-sm"
+                class="absolute left-8 md:left-1/2 -translate-x-1/2 w-12 h-12 md:w-16 md:h-16 rounded-full glass-effect border border-outline-variant flex items-center justify-center z-10 group-hover:border-primary-container group-hover:scale-110 transition-all bg-surface-container-lowest shadow-sm"
               >
-                <span class="text-xl font-display-xl font-bold text-on-surface"
+                <span
+                  class="text-base md:text-xl font-display-xl font-bold text-on-surface"
                   >01</span
                 >
               </div>
-              <div class="md:w-5/12 md:pl-12">
+              <div class="md:w-5/12 w-full md:pl-12">
                 <div
                   class="w-16 h-16 rounded-full bg-surface flex items-center justify-center mb-6 md:mb-0 shadow-sm"
                 >
@@ -2006,9 +2056,9 @@
             </div>
             <!-- Step 2 -->
             <div
-              class="relative flex flex-col md:flex-row-reverse items-center justify-between reveal-on-scroll group"
+              class="relative flex flex-col md:flex-row-reverse items-center justify-between reveal-on-scroll group pl-20 md:pl-0"
             >
-              <div class="md:w-5/12 text-left md:pl-12 mb-8 md:mb-0">
+              <div class="md:w-5/12 w-full text-left md:pl-12 mb-8 md:mb-0">
                 <h3 class="font-headline-md text-3xl text-on-surface mb-3">
                   Strategic Blueprint
                 </h3>
@@ -2018,13 +2068,16 @@
                 </p>
               </div>
               <div
-                class="absolute left-1/2 -translate-x-1/2 w-16 h-16 rounded-full glass-effect border border-outline-variant flex items-center justify-center z-10 group-hover:border-primary-container group-hover:scale-110 transition-all bg-surface-container-lowest hidden md:flex shadow-sm"
+                class="absolute left-8 md:left-1/2 -translate-x-1/2 w-12 h-12 md:w-16 md:h-16 rounded-full glass-effect border border-outline-variant flex items-center justify-center z-10 group-hover:border-primary-container group-hover:scale-110 transition-all bg-surface-container-lowest shadow-sm"
               >
-                <span class="text-xl font-display-xl font-bold text-on-surface"
+                <span
+                  class="text-base md:text-xl font-display-xl font-bold text-on-surface"
                   >02</span
                 >
               </div>
-              <div class="md:w-5/12 md:pr-12 flex justify-end">
+              <div
+                class="md:w-5/12 w-full md:pr-12 flex justify-start md:justify-end"
+              >
                 <div
                   class="w-16 h-16 rounded-full bg-surface flex items-center justify-center mb-6 md:mb-0 shadow-sm"
                 >
@@ -2038,9 +2091,11 @@
             </div>
             <!-- Step 3 -->
             <div
-              class="relative flex flex-col md:flex-row items-center justify-between reveal-on-scroll group"
+              class="relative flex flex-col md:flex-row items-center justify-between reveal-on-scroll group pl-20 md:pl-0"
             >
-              <div class="md:w-5/12 text-right md:pr-12 mb-8 md:mb-0">
+              <div
+                class="md:w-5/12 w-full text-left md:text-right md:pr-12 mb-8 md:mb-0"
+              >
                 <h3 class="font-headline-md text-3xl text-on-surface mb-3">
                   Precision Execution
                 </h3>
@@ -2050,13 +2105,14 @@
                 </p>
               </div>
               <div
-                class="absolute left-1/2 -translate-x-1/2 w-16 h-16 rounded-full glass-effect border border-outline-variant flex items-center justify-center z-10 group-hover:border-primary-container group-hover:scale-110 transition-all bg-surface-container-lowest hidden md:flex shadow-sm"
+                class="absolute left-8 md:left-1/2 -translate-x-1/2 w-12 h-12 md:w-16 md:h-16 rounded-full glass-effect border border-outline-variant flex items-center justify-center z-10 group-hover:border-primary-container group-hover:scale-110 transition-all bg-surface-container-lowest shadow-sm"
               >
-                <span class="text-xl font-display-xl font-bold text-on-surface"
+                <span
+                  class="text-base md:text-xl font-display-xl font-bold text-on-surface"
                   >03</span
                 >
               </div>
-              <div class="md:w-5/12 md:pl-12">
+              <div class="md:w-5/12 w-full md:pl-12">
                 <div
                   class="w-16 h-16 rounded-full bg-surface flex items-center justify-center mb-6 md:mb-0 shadow-sm"
                 >
@@ -2070,9 +2126,9 @@
             </div>
             <!-- Step 4 -->
             <div
-              class="relative flex flex-col md:flex-row-reverse items-center justify-between reveal-on-scroll group"
+              class="relative flex flex-col md:flex-row-reverse items-center justify-between reveal-on-scroll group pl-20 md:pl-0"
             >
-              <div class="md:w-5/12 text-left md:pl-12 mb-8 md:mb-0">
+              <div class="md:w-5/12 w-full text-left md:pl-12 mb-8 md:mb-0">
                 <h3 class="font-headline-md text-3xl text-on-surface mb-3">
                   Acquisition
                 </h3>
@@ -2082,13 +2138,16 @@
                 </p>
               </div>
               <div
-                class="absolute left-1/2 -translate-x-1/2 w-16 h-16 rounded-full glass-effect border border-outline-variant flex items-center justify-center z-10 group-hover:border-primary-container group-hover:scale-110 transition-all bg-surface-container-lowest hidden md:flex shadow-sm"
+                class="absolute left-8 md:left-1/2 -translate-x-1/2 w-12 h-12 md:w-16 md:h-16 rounded-full glass-effect border border-outline-variant flex items-center justify-center z-10 group-hover:border-primary-container group-hover:scale-110 transition-all bg-surface-container-lowest shadow-sm"
               >
-                <span class="text-xl font-display-xl font-bold text-on-surface"
+                <span
+                  class="text-base md:text-xl font-display-xl font-bold text-on-surface"
                   >04</span
                 >
               </div>
-              <div class="md:w-5/12 md:pr-12 flex justify-end">
+              <div
+                class="md:w-5/12 w-full md:pr-12 flex justify-start md:justify-end"
+              >
                 <div
                   class="w-16 h-16 rounded-full bg-surface flex items-center justify-center mb-6 md:mb-0 shadow-sm"
                 >
@@ -2102,9 +2161,11 @@
             </div>
             <!-- Step 5 -->
             <div
-              class="relative flex flex-col md:flex-row items-center justify-between reveal-on-scroll group"
+              class="relative flex flex-col md:flex-row items-center justify-between reveal-on-scroll group pl-20 md:pl-0"
             >
-              <div class="md:w-5/12 text-right md:pr-12 mb-8 md:mb-0">
+              <div
+                class="md:w-5/12 w-full text-left md:text-right md:pr-12 mb-8 md:mb-0"
+              >
                 <h3
                   class="font-headline-md text-3xl text-primary-container mb-3"
                 >
@@ -2116,13 +2177,14 @@
                 </p>
               </div>
               <div
-                class="absolute left-1/2 -translate-x-1/2 w-20 h-20 rounded-full bg-primary-container flex items-center justify-center z-10 shadow-[0_10px_30px_rgba(95,51,225,0.4)] hidden md:flex"
+                class="absolute left-8 md:left-1/2 -translate-x-1/2 w-14 h-14 md:w-20 md:h-20 rounded-full bg-primary-container flex items-center justify-center z-10 shadow-[0_10px_30px_rgba(95,51,225,0.4)]"
               >
-                <span class="text-2xl font-display-xl font-bold text-white"
+                <span
+                  class="text-xl md:text-2xl font-display-xl font-bold text-white"
                   >05</span
                 >
               </div>
-              <div class="md:w-5/12 md:pl-12">
+              <div class="md:w-5/12 w-full md:pl-12">
                 <div
                   class="w-20 h-20 rounded-full bg-surface-bright flex items-center justify-center mb-6 md:mb-0 border border-primary-container/20 shadow-sm"
                 >
@@ -2290,13 +2352,6 @@
                   >Contact Us</a
                 >
               </li>
-              <li>
-                <a
-                  href="#"
-                  class="text-on-surface-variant hover:text-primary-container transition-colors font-light"
-                  >Blogs</a
-                >
-              </li>
             </ul>
           </div>
 
@@ -2341,52 +2396,6 @@
                   href="courses.html?search=Psychology"
                   class="text-on-surface-variant hover:text-primary-container transition-colors font-light"
                   >Psychology Courses</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <!-- More Links -->
-          <div class="lg:col-span-2">
-            <h4
-              class="text-on-surface font-headline-md text-lg font-semibold mb-6"
-            >
-              More Links
-            </h4>
-            <ul class="space-y-4">
-              <li>
-                <a
-                  href="#"
-                  class="text-on-surface-variant hover:text-primary-container transition-colors font-light"
-                  >About us</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="text-on-surface-variant hover:text-primary-container transition-colors font-light"
-                  >Careers</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="text-on-surface-variant hover:text-primary-container transition-colors font-light"
-                  >Our Clients</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="text-on-surface-variant hover:text-primary-container transition-colors font-light"
-                  >Our Team</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="text-on-surface-variant hover:text-primary-container transition-colors font-light"
-                  >Sitemap</a
                 >
               </li>
             </ul>
@@ -2628,7 +2637,7 @@
         const combinedEl = document.getElementById("hero-typing-combined");
         if (!combinedEl) return;
 
-        const phrases = ["GLOBALLEGACY", "KINGSLAND"];
+        const phrases = ["GLOBAL LEGACY", "KINGSLAND"];
 
         let phraseIndex = 0;
         let charIndex = 0;
