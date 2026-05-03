@@ -749,7 +749,7 @@
         }
 
         /* ========== Form Validation & Submission ========== */
-        const scriptURL = CONFIG.GOOGLE_SCRIPT_URL;
+        const scriptURL = typeof CONFIG !== "undefined" ? CONFIG.GOOGLE_SCRIPT_URL : null;
         const form = document.getElementById("contact-form");
         const submitBtn = document.getElementById("submit-btn");
         const btnText = document.getElementById("btn-text");
@@ -832,6 +832,15 @@
         form.addEventListener("submit", async (e) => {
           e.preventDefault();
           if (isSubmitting) return;
+
+          if (!scriptURL) {
+            showToast(
+              "Configuration error: Form submission is not set up correctly.",
+              "error",
+            );
+            return;
+          }
+
           if (!validateForm()) return;
 
           setLoading(true);
