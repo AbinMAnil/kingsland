@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Cinzel:wght@400;700&amp;display=swap"
       rel="stylesheet"
     />
     <link
@@ -91,14 +91,39 @@
               "body-lg": ["Inter"],
               "label-sm": ["Inter"],
               "display-xl": ["Plus Jakarta Sans"],
+              cinzel: ["Cinzel", "serif"],
             },
             fontSize: {
-              "headline-lg": ["40px", { lineHeight: "48px", letterSpacing: "-0.01em", fontWeight: "600" }],
-              "headline-md": ["32px", { lineHeight: "40px", fontWeight: "600" }],
+              "headline-lg": [
+                "40px",
+                {
+                  lineHeight: "48px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-md": [
+                "32px",
+                { lineHeight: "40px", fontWeight: "600" },
+              ],
               "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
               "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
-              "label-sm": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "500" }],
-              "display-xl": ["64px", { lineHeight: "72px", letterSpacing: "-0.02em", fontWeight: "700" }],
+              "label-sm": [
+                "14px",
+                {
+                  lineHeight: "20px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "500",
+                },
+              ],
+              "display-xl": [
+                "64px",
+                {
+                  lineHeight: "72px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
             },
           },
         },
@@ -106,7 +131,11 @@
     </script>
     <style>
       .material-symbols-outlined {
-        font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 300,
+          "GRAD" 0,
+          "opsz" 24;
       }
       .glass-effect {
         background: rgba(255, 255, 255, 0.7);
@@ -132,9 +161,16 @@
         border-radius: 2px;
         transition: all 0.35s cubic-bezier(0.77, 0, 0.175, 1);
       }
-      .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-      .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-      .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      .hamburger.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+      .hamburger.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
       .mobile-menu-overlay {
         position: fixed;
         inset: 0;
@@ -145,7 +181,10 @@
         pointer-events: none;
         transition: opacity 0.35s ease;
       }
-      .mobile-menu-overlay.active { opacity: 1; pointer-events: auto; }
+      .mobile-menu-overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
       .mobile-menu {
         position: fixed;
         top: 0;
@@ -161,11 +200,13 @@
         flex-direction: column;
         padding: 100px 32px 40px;
       }
-      .mobile-menu.active { transform: translateX(0); }
+      .mobile-menu.active {
+        transform: translateX(0);
+      }
       .mobile-menu a {
         display: block;
         padding: 16px 0;
-        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-family: "Plus Jakarta Sans", sans-serif;
         font-size: 18px;
         font-weight: 600;
         color: #081434;
@@ -173,31 +214,71 @@
         transition: all 0.2s;
         text-decoration: none;
       }
-      .mobile-menu a:hover { color: #D4AF37; padding-left: 8px; }
-      body.menu-open { overflow: hidden; }
+      .mobile-menu a:hover {
+        color: #d4af37;
+        padding-left: 8px;
+      }
+      body.menu-open {
+        overflow: hidden;
+      }
 
       @media (max-width: 767px) {
-        .hamburger { display: flex; }
+        .hamburger {
+          display: flex;
+        }
       }
     </style>
   </head>
-  <body class="bg-surface-container-lowest text-on-surface font-body-md antialiased overflow-x-hidden">
+  <body
+    class="bg-surface-container-lowest text-on-surface font-body-md antialiased overflow-x-hidden"
+  >
     <!-- Navigation -->
-    <header class="fixed top-0 w-full z-50 transition-all duration-300 px-6 py-6" id="navbar">
-      <div class="glass-effect rounded-full px-8 py-4 max-w-container-max mx-auto flex justify-between items-center shadow-[0_8px_32px_rgba(0,0,0,0.04)]">
+    <header
+      class="fixed top-0 w-full z-50 transition-all duration-300 px-6 py-6"
+      id="navbar"
+    >
+      <div
+        class="glass-effect rounded-full px-8 py-4 max-w-container-max mx-auto flex justify-between items-center shadow-[0_8px_32px_rgba(0,0,0,0.04)]"
+      >
         <a href="index.html" class="flex items-center gap-3">
-          <img src="logo.png" alt="Kingsland Logo" class="h-9 w-auto object-contain block" />
-          <div class="flex flex-col">
-            <span class="text-[20px] font-bold text-primary tracking-tight leading-none">Kingsland</span>
-            <span class="text-[7px] font-bold text-primary tracking-[0.05em] leading-none mt-1 uppercase">International Education Group</span>
-          </div>
+          <img
+            src="logo.png"
+            alt="Kingsland Logo"
+            class="h-11 w-auto object-contain block"
+          />
+          <!-- <div class="flex flex-col">
+            <span class="text-[22px] font-bold text-primary tracking-tight leading-none uppercase font-cinzel">Kingsland</span>
+            <span class="text-[8px] font-bold text-primary tracking-[0.05em] leading-none mt-1 uppercase">International Education Group</span>
+          </div> -->
         </a>
-        <nav class="hidden md:flex gap-8 font-headline-md text-[14px] font-medium">
-          <a class="text-on-surface hover:text-primary-container transition-colors relative" href="index.html">Home</a>
-          <a class="text-on-surface-variant hover:text-primary-container transition-colors relative" href="index.html#about">About Us</a>
-          <a class="text-on-surface-variant hover:text-primary-container transition-colors relative" href="courses.html">Courses</a>
-          <a class="text-on-surface-variant hover:text-primary-container transition-colors relative" href="index.html#services">Services</a>
-          <a class="text-on-surface-variant hover:text-primary-container transition-colors relative font-bold text-primary" href="contact.html">Contact</a>
+        <nav
+          class="hidden md:flex gap-8 font-headline-md text-[14px] font-medium"
+        >
+          <a
+            class="text-on-surface hover:text-primary-container transition-colors relative"
+            href="index.html"
+            >Home</a
+          >
+          <a
+            class="text-on-surface-variant hover:text-primary-container transition-colors relative"
+            href="index.html#about"
+            >About Us</a
+          >
+          <a
+            class="text-on-surface-variant hover:text-primary-container transition-colors relative"
+            href="courses.html"
+            >Courses</a
+          >
+          <a
+            class="text-on-surface-variant hover:text-primary-container transition-colors relative"
+            href="index.html#services"
+            >Services</a
+          >
+          <a
+            class="text-on-surface-variant hover:text-primary-container transition-colors relative font-bold text-primary"
+            href="contact.html"
+            >Contact</a
+          >
         </nav>
         <button class="hamburger" id="hamburger-btn">
           <span></span><span></span><span></span>
@@ -218,66 +299,193 @@
       <!-- Contact Hero -->
       <section class="py-20 px-gutter">
         <div class="max-w-container-max mx-auto text-center">
-          <h1 class="font-display-xl text-5xl md:text-7xl mb-6 text-primary">Get in Touch</h1>
-          <p class="text-xl text-on-surface-variant max-w-2xl mx-auto font-light">
-            Whether you have questions about global admissions or need expert career guidance, our team is here to help you architect your legacy.
+          <h1 class="font-display-xl text-5xl md:text-7xl mb-6 text-primary">
+            Get in Touch
+          </h1>
+          <p
+            class="text-xl text-on-surface-variant max-w-2xl mx-auto font-light"
+          >
+            Whether you have questions about global admissions or need expert
+            career guidance, our team is here to help you architect your legacy.
           </p>
         </div>
       </section>
 
       <!-- Contact Content -->
       <section class="pb-32 px-gutter">
-        <div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
+        <div
+          class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20"
+        >
           <!-- Contact Form -->
-          <div class="bg-white p-8 md:p-12 rounded-[40px] border border-outline-variant shadow-sm">
-            <h2 class="font-headline-lg mb-8 text-primary">Send us a Message</h2>
+          <div
+            class="bg-white p-8 md:p-12 rounded-[40px] border border-outline-variant shadow-sm"
+          >
+            <h2 class="font-headline-lg mb-8 text-primary">
+              Send us a Message
+            </h2>
             <form id="contact-form" class="space-y-6" novalidate>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label for="full_name" class="block text-sm font-medium text-on-surface-variant mb-2">Full Name</label>
-                  <input type="text" id="full_name" name="full_name" required class="w-full px-6 py-4 rounded-2xl border border-outline-variant focus:border-tertiary focus:ring-1 focus:ring-tertiary transition-all bg-surface-bright" placeholder="John Doe">
+                  <label
+                    for="full_name"
+                    class="block text-sm font-medium text-on-surface-variant mb-2"
+                    >Full Name</label
+                  >
+                  <input
+                    type="text"
+                    id="full_name"
+                    name="full_name"
+                    required
+                    class="w-full px-6 py-4 rounded-2xl border border-outline-variant focus:border-tertiary focus:ring-1 focus:ring-tertiary transition-all bg-surface-bright"
+                    placeholder="John Doe"
+                  />
                 </div>
                 <div>
-                  <label for="phone" class="block text-sm font-medium text-on-surface-variant mb-2">Phone Number</label>
-                  <input type="tel" id="phone" name="phone" required pattern="[0-9+ ]{10,18}" title="Please enter a valid phone number" class="w-full px-6 py-4 rounded-2xl border border-outline-variant focus:border-tertiary focus:ring-1 focus:ring-tertiary transition-all bg-surface-bright" placeholder="+971 52 321 2044">
+                  <label
+                    for="phone"
+                    class="block text-sm font-medium text-on-surface-variant mb-2"
+                    >Phone Number</label
+                  >
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    required
+                    pattern="[0-9+ ]{10,18}"
+                    title="Please enter a valid phone number"
+                    class="w-full px-6 py-4 rounded-2xl border border-outline-variant focus:border-tertiary focus:ring-1 focus:ring-tertiary transition-all bg-surface-bright"
+                    placeholder="+971 52 321 2044"
+                  />
                 </div>
               </div>
               <div>
-                <label for="email" class="block text-sm font-medium text-on-surface-variant mb-2">Gmail Address</label>
-                <input type="email" id="email" name="email" required pattern="[a-z0-9._%+\-]+@gmail\.com$" title="Please enter a valid Gmail address (e.g., user@gmail.com)" class="w-full px-6 py-4 rounded-2xl border border-outline-variant focus:border-tertiary focus:ring-1 focus:ring-tertiary transition-all bg-surface-bright" placeholder="yourname@gmail.com">
+                <label
+                  for="email"
+                  class="block text-sm font-medium text-on-surface-variant mb-2"
+                  >Gmail Address</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  pattern="[a-z0-9._%+\-]+@gmail\.com$"
+                  title="Please enter a valid Gmail address (e.g., user@gmail.com)"
+                  class="w-full px-6 py-4 rounded-2xl border border-outline-variant focus:border-tertiary focus:ring-1 focus:ring-tertiary transition-all bg-surface-bright"
+                  placeholder="yourname@gmail.com"
+                />
               </div>
               <div>
-                <label class="block text-sm font-medium text-on-surface-variant mb-2">Subject</label>
-                <div class="relative custom-select-container" id="subject-select">
-                  <div class="custom-select-trigger w-full px-6 py-4 rounded-2xl border border-outline-variant focus-within:border-tertiary focus-within:ring-1 focus-within:ring-tertiary transition-all bg-surface-bright cursor-pointer flex justify-between items-center group">
-                    <span class="selected-value text-on-surface-variant">Select a subject</span>
-                    <span class="material-symbols-outlined transition-transform duration-300 group-[.active]:rotate-180 text-on-surface-variant">expand_more</span>
+                <label
+                  class="block text-sm font-medium text-on-surface-variant mb-2"
+                  >Subject</label
+                >
+                <div
+                  class="relative custom-select-container"
+                  id="subject-select"
+                >
+                  <div
+                    class="custom-select-trigger w-full px-6 py-4 rounded-2xl border border-outline-variant focus-within:border-tertiary focus-within:ring-1 focus-within:ring-tertiary transition-all bg-surface-bright cursor-pointer flex justify-between items-center group"
+                  >
+                    <span class="selected-value text-on-surface-variant"
+                      >Select a subject</span
+                    >
+                    <span
+                      class="material-symbols-outlined transition-transform duration-300 group-[.active]:rotate-180 text-on-surface-variant"
+                      >expand_more</span
+                    >
                   </div>
-                  <div class="custom-options hidden absolute z-20 top-full left-0 right-0 mt-2 bg-white border border-outline-variant rounded-2xl shadow-xl overflow-hidden animate-fade-in">
-                    <div class="option-item px-6 py-4 hover:bg-surface-container-lowest cursor-pointer transition-colors text-on-surface-variant hover:text-primary" data-value="General Inquiry">General Inquiry</div>
-                    <div class="option-item px-6 py-4 hover:bg-surface-container-lowest cursor-pointer transition-colors text-on-surface-variant hover:text-primary" data-value="Admission Consulting">Admission Consulting</div>
-                    <div class="option-item px-6 py-4 hover:bg-surface-container-lowest cursor-pointer transition-colors text-on-surface-variant hover:text-primary" data-value="Career Guidance">Career Guidance</div>
-                    <div class="option-item px-6 py-4 hover:bg-surface-container-lowest cursor-pointer transition-colors text-on-surface-variant hover:text-primary" data-value="Partnership Request">Partnership Request</div>
+                  <div
+                    class="custom-options hidden absolute z-20 top-full left-0 right-0 mt-2 bg-white border border-outline-variant rounded-2xl shadow-xl overflow-hidden animate-fade-in"
+                  >
+                    <div
+                      class="option-item px-6 py-4 hover:bg-surface-container-lowest cursor-pointer transition-colors text-on-surface-variant hover:text-primary"
+                      data-value="General Inquiry"
+                    >
+                      General Inquiry
+                    </div>
+                    <div
+                      class="option-item px-6 py-4 hover:bg-surface-container-lowest cursor-pointer transition-colors text-on-surface-variant hover:text-primary"
+                      data-value="Admission Consulting"
+                    >
+                      Admission Consulting
+                    </div>
+                    <div
+                      class="option-item px-6 py-4 hover:bg-surface-container-lowest cursor-pointer transition-colors text-on-surface-variant hover:text-primary"
+                      data-value="Career Guidance"
+                    >
+                      Career Guidance
+                    </div>
+                    <div
+                      class="option-item px-6 py-4 hover:bg-surface-container-lowest cursor-pointer transition-colors text-on-surface-variant hover:text-primary"
+                      data-value="Partnership Request"
+                    >
+                      Partnership Request
+                    </div>
                   </div>
-                  <input type="hidden" name="subject" id="subject-input" required>
+                  <input
+                    type="hidden"
+                    name="subject"
+                    id="subject-input"
+                    required
+                  />
                 </div>
               </div>
               <div>
-                <label for="message" class="block text-sm font-medium text-on-surface-variant mb-2">Message</label>
-                <textarea rows="5" id="message" name="message" required class="w-full px-6 py-4 rounded-2xl border border-outline-variant focus:border-tertiary focus:ring-1 focus:ring-tertiary transition-all bg-surface-bright" placeholder="Tell us about your goals..."></textarea>
+                <label
+                  for="message"
+                  class="block text-sm font-medium text-on-surface-variant mb-2"
+                  >Message</label
+                >
+                <textarea
+                  rows="5"
+                  id="message"
+                  name="message"
+                  required
+                  class="w-full px-6 py-4 rounded-2xl border border-outline-variant focus:border-tertiary focus:ring-1 focus:ring-tertiary transition-all bg-surface-bright"
+                  placeholder="Tell us about your goals..."
+                ></textarea>
               </div>
-              <button type="submit" id="submit-btn" class="w-full py-5 bg-primary text-white rounded-full font-bold text-lg hover:bg-on-primary-fixed-variant transition-all shadow-lg flex items-center justify-center gap-3">
+              <button
+                type="submit"
+                id="submit-btn"
+                class="w-full py-5 bg-primary text-white rounded-full font-bold text-lg hover:bg-on-primary-fixed-variant transition-all shadow-lg flex items-center justify-center gap-3"
+              >
                 <span id="btn-text">Send Message</span>
-                <svg id="btn-spinner" class="hidden animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                <svg
+                  id="btn-spinner"
+                  class="hidden animate-spin h-5 w-5 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    class="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    stroke-width="4"
+                  ></circle>
+                  <path
+                    class="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                  ></path>
                 </svg>
               </button>
             </form>
 
             <!-- Toast Notification -->
-            <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] px-8 py-4 rounded-2xl shadow-2xl font-semibold text-sm flex items-center gap-3 transition-all duration-500 translate-y-[120px] opacity-0 pointer-events-none" role="alert">
-              <span id="toast-icon" class="material-symbols-outlined text-xl"></span>
+            <div
+              id="toast"
+              class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] px-8 py-4 rounded-2xl shadow-2xl font-semibold text-sm flex items-center gap-3 transition-all duration-500 translate-y-[120px] opacity-0 pointer-events-none"
+              role="alert"
+            >
+              <span
+                id="toast-icon"
+                class="material-symbols-outlined text-xl"
+              ></span>
               <span id="toast-msg"></span>
             </div>
           </div>
@@ -285,7 +493,9 @@
           <!-- Contact Details -->
           <div class="flex flex-col justify-center space-y-12">
             <div>
-              <h2 class="font-headline-lg mb-6 text-primary">Contact Information</h2>
+              <h2 class="font-headline-lg mb-6 text-primary">
+                Contact Information
+              </h2>
               <p class="text-on-surface-variant text-lg font-light mb-8">
                 Reach out to us through any of the following channels.
               </p>
@@ -293,44 +503,87 @@
 
             <div class="space-y-8">
               <div class="flex gap-6 items-start">
-                <div class="w-14 h-14 rounded-2xl bg-tertiary-container/30 flex items-center justify-center flex-shrink-0">
-                  <span class="material-symbols-outlined text-tertiary text-3xl">location_on</span>
+                <div
+                  class="w-14 h-14 rounded-2xl bg-tertiary-container/30 flex items-center justify-center flex-shrink-0"
+                >
+                  <span class="material-symbols-outlined text-tertiary text-3xl"
+                    >location_on</span
+                  >
                 </div>
                 <div>
-                  <h4 class="font-headline-md text-xl mb-1 text-primary">Office Location</h4>
-                  <p class="text-on-surface-variant font-light">Level 3, 3rd Floor, BurJuman Mall Dubai,<br />United Arab Emirates</p>
+                  <h4 class="font-headline-md text-xl mb-1 text-primary">
+                    Office Location
+                  </h4>
+                  <p class="text-on-surface-variant font-light">
+                    Level 3, 3rd Floor, BurJuman Mall Dubai,<br />United Arab
+                    Emirates
+                  </p>
                 </div>
               </div>
 
               <div class="flex gap-6 items-start">
-                <div class="w-14 h-14 rounded-2xl bg-tertiary-container/30 flex items-center justify-center flex-shrink-0">
-                  <span class="material-symbols-outlined text-tertiary text-3xl">mail</span>
+                <div
+                  class="w-14 h-14 rounded-2xl bg-tertiary-container/30 flex items-center justify-center flex-shrink-0"
+                >
+                  <span class="material-symbols-outlined text-tertiary text-3xl"
+                    >mail</span
+                  >
                 </div>
                 <div>
-                  <h4 class="font-headline-md text-xl mb-1 text-primary">Email Us</h4>
-                  <p class="text-on-surface-variant font-light">info@kingslandeducation.com</p>
+                  <h4 class="font-headline-md text-xl mb-1 text-primary">
+                    Email Us
+                  </h4>
+                  <p class="text-on-surface-variant font-light">
+                    info@kingslandeducation.com
+                  </p>
                 </div>
               </div>
 
               <div class="flex gap-6 items-start">
-                <div class="w-14 h-14 rounded-2xl bg-tertiary-container/30 flex items-center justify-center flex-shrink-0">
-                  <span class="material-symbols-outlined text-tertiary text-3xl">call</span>
+                <div
+                  class="w-14 h-14 rounded-2xl bg-tertiary-container/30 flex items-center justify-center flex-shrink-0"
+                >
+                  <span class="material-symbols-outlined text-tertiary text-3xl"
+                    >call</span
+                  >
                 </div>
                 <div>
-                  <h4 class="font-headline-md text-xl mb-1 text-primary">Call Us</h4>
-                  <p class="text-on-surface-variant font-light">+971 52 321 2044</p>
+                  <h4 class="font-headline-md text-xl mb-1 text-primary">
+                    Call Us
+                  </h4>
+                  <p class="text-on-surface-variant font-light">
+                    +971 52 321 2044
+                  </p>
                 </div>
               </div>
 
-              <a href="https://wa.me/971523212044" target="_blank" class="flex gap-6 items-start group">
-                <div class="w-14 h-14 rounded-2xl bg-[#25D366]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#25D366]/20 transition-all">
-                  <svg class="w-7 h-7 fill-[#25D366]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              <a
+                href="https://wa.me/971523212044"
+                target="_blank"
+                class="flex gap-6 items-start group"
+              >
+                <div
+                  class="w-14 h-14 rounded-2xl bg-[#25D366]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#25D366]/20 transition-all"
+                >
+                  <svg
+                    class="w-7 h-7 fill-[#25D366]"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                    />
                   </svg>
                 </div>
                 <div>
-                  <h4 class="font-headline-md text-xl mb-1 text-primary">Chat on WhatsApp</h4>
-                  <p class="text-on-surface-variant font-light group-hover:text-primary transition-all">Quick response within 24 hours</p>
+                  <h4 class="font-headline-md text-xl mb-1 text-primary">
+                    Chat on WhatsApp
+                  </h4>
+                  <p
+                    class="text-on-surface-variant font-light group-hover:text-primary transition-all"
+                  >
+                    Quick response within 24 hours
+                  </p>
                 </div>
               </a>
             </div>
@@ -351,42 +604,69 @@
       </section>
     </main>
 
-    <footer class="bg-surface-container-lowest border-t border-outline-variant pt-20 pb-10">
+    <footer
+      class="bg-surface-container-lowest border-t border-outline-variant pt-20 pb-10"
+    >
       <div class="max-w-container-max mx-auto px-gutter text-center">
         <div class="mb-12">
           <div class="flex items-center justify-center gap-3 mb-6">
             <img src="logo.png" alt="Kingsland Logo" class="h-11 w-auto" />
-          <div class="flex flex-col items-center">
-            <span class="text-xl font-bold text-primary tracking-tight leading-none">Kingsland</span>
-            <span class="text-[8px] font-bold text-primary tracking-[0.05em] leading-none mt-1 uppercase">International Education Group</span>
-          </div>
+            <div class="flex flex-col items-center">
+              <span
+                class="text-2xl font-bold text-primary tracking-tight leading-none uppercase font-cinzel"
+                >Kingsland</span
+              >
+              <span
+                class="text-[9px] font-bold text-primary tracking-[0.05em] leading-none mt-1 uppercase"
+                >International Education Group</span
+              >
+            </div>
           </div>
           <div class="space-y-2 mb-8">
-            <p class="text-on-surface font-bold text-sm uppercase tracking-wider">Head Office Dubai, UAE</p>
-            <p class="text-on-surface-variant font-light text-sm max-w-sm mx-auto">Level 3, 3rd Floor, BurJuman Mall Dubai, United Arab Emirates</p>
+            <p
+              class="text-on-surface font-bold text-sm uppercase tracking-wider"
+            >
+              Head Office Dubai, UAE
+            </p>
+            <p
+              class="text-on-surface-variant font-light text-sm max-w-sm mx-auto"
+            >
+              Level 3, 3rd Floor, BurJuman Mall Dubai, United Arab Emirates
+            </p>
             <p class="text-on-surface-variant font-light text-sm pt-2">
-              <a href="tel:+971523212044" class="hover:text-primary transition-colors">+971 52 321 2044</a> | 
-              <a href="mailto:info@kingslandeducation.com" class="hover:text-primary transition-colors">info@kingslandeducation.com</a>
+              <a
+                href="tel:+971523212044"
+                class="hover:text-primary transition-colors"
+                >+971 52 321 2044</a
+              >
+              |
+              <a
+                href="mailto:info@kingslandeducation.com"
+                class="hover:text-primary transition-colors"
+                >info@kingslandeducation.com</a
+              >
             </p>
           </div>
           <div class="flex items-center gap-4 pt-4">
-                <a
-                  href="https://www.instagram.com/kingslandinternational?igsh=a2N5cWR6N2V6cXpq&utm_source=qr"
-                  target="_blank"
-                  class="w-10 h-10 rounded-full bg-surface-bright flex items-center justify-center text-on-surface-variant hover:text-primary transition-all border border-outline-variant shadow-sm"
-                >
-                  <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                    <path
-                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-                    />
-                  </svg>
-                </a>
-                <span class="text-on-surface-variant font-light text-sm"
-                  >Follow us on Instagram</span
-                >
-              </div>
+            <a
+              href="https://www.instagram.com/kingslandinternational?igsh=a2N5cWR6N2V6cXpq&utm_source=qr"
+              target="_blank"
+              class="w-10 h-10 rounded-full bg-surface-bright flex items-center justify-center text-on-surface-variant hover:text-primary transition-all border border-outline-variant shadow-sm"
+            >
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+            <span class="text-on-surface-variant font-light text-sm"
+              >Follow us on Instagram</span
+            >
+          </div>
         </div>
-        <div class="pt-10 border-t border-outline-variant text-sm font-light opacity-60">
+        <div
+          class="pt-10 border-t border-outline-variant text-sm font-light opacity-60"
+        >
           © 2024 Kingsland International. All rights reserved.
         </div>
       </div>
@@ -401,7 +681,8 @@
         const mobileOverlay = document.getElementById("mobile-overlay");
 
         function toggleMenu(force = null) {
-          const isOpen = force !== null ? force : !hamburgerBtn.classList.contains("active");
+          const isOpen =
+            force !== null ? force : !hamburgerBtn.classList.contains("active");
           hamburgerBtn.classList.toggle("active", isOpen);
           mobileMenu.classList.toggle("active", isOpen);
           mobileOverlay.classList.toggle("active", isOpen);
@@ -412,125 +693,143 @@
         mobileOverlay.addEventListener("click", () => toggleMenu(false));
 
         /* ========== Custom Dropdown ========== */
-        const selectContainer = document.getElementById('subject-select');
-        const trigger = selectContainer.querySelector('.custom-select-trigger');
-        const optionsList = selectContainer.querySelector('.custom-options');
-        const selectedValue = selectContainer.querySelector('.selected-value');
-        const hiddenInput = document.getElementById('subject-input');
-        const optionItems = selectContainer.querySelectorAll('.option-item');
+        const selectContainer = document.getElementById("subject-select");
+        const trigger = selectContainer.querySelector(".custom-select-trigger");
+        const optionsList = selectContainer.querySelector(".custom-options");
+        const selectedValue = selectContainer.querySelector(".selected-value");
+        const hiddenInput = document.getElementById("subject-input");
+        const optionItems = selectContainer.querySelectorAll(".option-item");
 
-        trigger.addEventListener('click', () => {
-          optionsList.classList.toggle('hidden');
-          trigger.classList.toggle('active');
+        trigger.addEventListener("click", () => {
+          optionsList.classList.toggle("hidden");
+          trigger.classList.toggle("active");
         });
 
-        optionItems.forEach(item => {
-          item.addEventListener('click', () => {
-            const val = item.getAttribute('data-value');
+        optionItems.forEach((item) => {
+          item.addEventListener("click", () => {
+            const val = item.getAttribute("data-value");
             selectedValue.textContent = val;
             hiddenInput.value = val;
-            optionsList.classList.add('hidden');
-            trigger.classList.remove('active');
-            selectedValue.classList.remove('text-on-surface-variant');
-            selectedValue.classList.add('text-on-surface');
+            optionsList.classList.add("hidden");
+            trigger.classList.remove("active");
+            selectedValue.classList.remove("text-on-surface-variant");
+            selectedValue.classList.add("text-on-surface");
           });
         });
 
-        document.addEventListener('click', (e) => {
+        document.addEventListener("click", (e) => {
           if (!selectContainer.contains(e.target)) {
-            optionsList.classList.add('hidden');
-            trigger.classList.remove('active');
+            optionsList.classList.add("hidden");
+            trigger.classList.remove("active");
           }
         });
 
         /* ========== Toast Notification ========== */
-        const toast = document.getElementById('toast');
-        const toastIcon = document.getElementById('toast-icon');
-        const toastMsg = document.getElementById('toast-msg');
+        const toast = document.getElementById("toast");
+        const toastIcon = document.getElementById("toast-icon");
+        const toastMsg = document.getElementById("toast-msg");
 
-        function showToast(message, type = 'success') {
-          const isSuccess = type === 'success';
-          toast.className = `fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] px-8 py-4 rounded-2xl shadow-2xl font-semibold text-sm flex items-center gap-3 transition-all duration-500 pointer-events-none ${isSuccess ? 'bg-green-600 text-white' : 'bg-red-600 text-white'}`;
-          toastIcon.textContent = isSuccess ? 'check_circle' : 'error';
+        function showToast(message, type = "success") {
+          const isSuccess = type === "success";
+          toast.className = `fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] px-8 py-4 rounded-2xl shadow-2xl font-semibold text-sm flex items-center gap-3 transition-all duration-500 pointer-events-none ${isSuccess ? "bg-green-600 text-white" : "bg-red-600 text-white"}`;
+          toastIcon.textContent = isSuccess ? "check_circle" : "error";
           toastMsg.textContent = message;
 
           // Animate in
           requestAnimationFrame(() => {
-            toast.style.transform = 'translateX(-50%) translateY(0)';
-            toast.style.opacity = '1';
+            toast.style.transform = "translateX(-50%) translateY(0)";
+            toast.style.opacity = "1";
           });
 
           // Animate out after 4s
           setTimeout(() => {
-            toast.style.transform = 'translateX(-50%) translateY(120px)';
-            toast.style.opacity = '0';
+            toast.style.transform = "translateX(-50%) translateY(120px)";
+            toast.style.opacity = "0";
           }, 4000);
         }
 
         /* ========== Form Validation & Submission ========== */
         const scriptURL = CONFIG.GOOGLE_SCRIPT_URL;
-        const form = document.getElementById('contact-form');
-        const submitBtn = document.getElementById('submit-btn');
-        const btnText = document.getElementById('btn-text');
-        const btnSpinner = document.getElementById('btn-spinner');
+        const form = document.getElementById("contact-form");
+        const submitBtn = document.getElementById("submit-btn");
+        const btnText = document.getElementById("btn-text");
+        const btnSpinner = document.getElementById("btn-spinner");
         let isSubmitting = false;
 
         function setLoading(loading) {
           isSubmitting = loading;
           submitBtn.disabled = loading;
-          btnText.textContent = loading ? 'Sending...' : 'Send Message';
-          btnSpinner.classList.toggle('hidden', !loading);
-          submitBtn.classList.toggle('opacity-70', loading);
-          submitBtn.classList.toggle('cursor-not-allowed', loading);
+          btnText.textContent = loading ? "Sending..." : "Send Message";
+          btnSpinner.classList.toggle("hidden", !loading);
+          submitBtn.classList.toggle("opacity-70", loading);
+          submitBtn.classList.toggle("cursor-not-allowed", loading);
         }
 
         function validateForm() {
           const fields = [
-            { el: document.getElementById('full_name'), msg: 'Please enter your full name.' },
-            { el: document.getElementById('phone'), msg: 'Please enter a valid phone number.' },
-            { el: document.getElementById('email'), msg: 'Please enter a valid Gmail address.' },
-            { el: hiddenInput, msg: 'Please select a subject.' },
-            { el: document.getElementById('message'), msg: 'Please enter your message.' },
+            {
+              el: document.getElementById("full_name"),
+              msg: "Please enter your full name.",
+            },
+            {
+              el: document.getElementById("phone"),
+              msg: "Please enter a valid phone number.",
+            },
+            {
+              el: document.getElementById("email"),
+              msg: "Please enter a valid Gmail address.",
+            },
+            { el: hiddenInput, msg: "Please select a subject." },
+            {
+              el: document.getElementById("message"),
+              msg: "Please enter your message.",
+            },
           ];
 
           // Clear previous error styles
-          form.querySelectorAll('input, textarea').forEach(el => {
-            el.classList.remove('border-red-400', 'ring-1', 'ring-red-400');
+          form.querySelectorAll("input, textarea").forEach((el) => {
+            el.classList.remove("border-red-400", "ring-1", "ring-red-400");
           });
 
           for (const { el, msg } of fields) {
             if (!el.value || !el.value.trim()) {
-              el.classList.add('border-red-400', 'ring-1', 'ring-red-400');
+              el.classList.add("border-red-400", "ring-1", "ring-red-400");
               el.focus();
-              showToast(msg, 'error');
+              showToast(msg, "error");
               return false;
             }
           }
 
           // Validate email format
-          const emailEl = document.getElementById('email');
+          const emailEl = document.getElementById("email");
           const emailRegex = /^[a-z0-9._%+\-]+@gmail\.com$/i;
           if (!emailRegex.test(emailEl.value.trim())) {
-            emailEl.classList.add('border-red-400', 'ring-1', 'ring-red-400');
+            emailEl.classList.add("border-red-400", "ring-1", "ring-red-400");
             emailEl.focus();
-            showToast('Please enter a valid Gmail address (e.g., user@gmail.com).', 'error');
+            showToast(
+              "Please enter a valid Gmail address (e.g., user@gmail.com).",
+              "error",
+            );
             return false;
           }
 
           // Validate phone format
-          const phoneEl = document.getElementById('phone');
+          const phoneEl = document.getElementById("phone");
           const phoneRegex = /^[0-9+ ]{10,18}$/;
           if (!phoneRegex.test(phoneEl.value.trim())) {
-            phoneEl.classList.add('border-red-400', 'ring-1', 'ring-red-400');
+            phoneEl.classList.add("border-red-400", "ring-1", "ring-red-400");
             phoneEl.focus();
-            showToast('Please enter a valid phone number (10–18 digits).', 'error');
+            showToast(
+              "Please enter a valid phone number (10–18 digits).",
+              "error",
+            );
             return false;
           }
 
           return true;
         }
 
-        form.addEventListener('submit', async (e) => {
+        form.addEventListener("submit", async (e) => {
           e.preventDefault();
           if (isSubmitting) return;
           if (!validateForm()) return;
@@ -538,11 +837,11 @@
           setLoading(true);
 
           const data = {
-            full_name: document.getElementById('full_name').value.trim(),
-            phone: document.getElementById('phone').value.trim(),
-            email: document.getElementById('email').value.trim(),
+            full_name: document.getElementById("full_name").value.trim(),
+            phone: document.getElementById("phone").value.trim(),
+            email: document.getElementById("email").value.trim(),
             subject: hiddenInput.value.trim(),
-            message: document.getElementById('message').value.trim(),
+            message: document.getElementById("message").value.trim(),
           };
 
           // Fetch with timeout (15 seconds)
@@ -551,25 +850,34 @@
 
           try {
             const response = await fetch(scriptURL, {
-              method: 'POST',
+              method: "POST",
               body: JSON.stringify(data),
               signal: controller.signal,
             });
 
             clearTimeout(timeoutId);
 
-            showToast('Inquiry sent successfully! We\'ll get back to you soon.', 'success');
+            showToast(
+              "Inquiry sent successfully! We'll get back to you soon.",
+              "success",
+            );
             form.reset();
-            selectedValue.textContent = 'Select a subject';
-            selectedValue.classList.add('text-on-surface-variant');
-            selectedValue.classList.remove('text-on-surface');
-            hiddenInput.value = '';
+            selectedValue.textContent = "Select a subject";
+            selectedValue.classList.add("text-on-surface-variant");
+            selectedValue.classList.remove("text-on-surface");
+            hiddenInput.value = "";
           } catch (err) {
-            if (err.name === 'AbortError') {
-              showToast('Request timed out. Please check your connection and try again.', 'error');
+            if (err.name === "AbortError") {
+              showToast(
+                "Request timed out. Please check your connection and try again.",
+                "error",
+              );
             } else {
-              console.error('Submission Error:', err);
-              showToast('Something went wrong. Please try again later.', 'error');
+              console.error("Submission Error:", err);
+              showToast(
+                "Something went wrong. Please try again later.",
+                "error",
+              );
             }
           } finally {
             setLoading(false);
@@ -579,8 +887,14 @@
     </script>
     <style>
       @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(-10px); }
-        to { opacity: 1; transform: translateY(0); }
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
       .animate-fade-in {
         animation: fadeIn 0.2s ease-out forwards;
