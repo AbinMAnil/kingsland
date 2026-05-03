@@ -517,7 +517,8 @@
         }
 
         /* "Begin Your Journey" button */
-        #hero .bg-white\/90 button {
+        #hero .bg-white\/90 button,
+        #hero .bg-white\/90 a {
           padding: 10px !important;
           font-size: 11px !important;
           border-radius: 12px !important;
@@ -667,16 +668,6 @@
             alt="Kingsland Logo"
             class="h-11 w-auto object-contain block"
           />
-          <div class="flex flex-col">
-            <!-- <span
-              class="text-[22px] font-bold text-primary tracking-tight leading-none uppercase font-cinzel"
-              >Kingsland</span
-            >
-            <span
-              class="text-[8px] font-bold text-primary tracking-[0.05em] leading-none mt-1 uppercase"
-              >International Education Group</span
-            > -->
-          </div>
         </div>
         <nav
           class="hidden md:flex gap-8 font-headline-md text-[14px] font-medium"
@@ -762,21 +753,15 @@
 
         <!-- Big Background Text -->
         <div
-          class="absolute top-[20%] left-0 w-full flex justify-between px-4 lg:px-12 pointer-events-none z-0 overflow-hidden"
+          class="absolute top-[20%] left-0 w-full flex justify-center pointer-events-none z-0 overflow-hidden"
         >
           <div
-            class="font-display-xl font-bold text-on-surface/[0.04] tracking-tighter leading-none flex items-center"
-            style="font-size: clamp(80px, 11vw, 200px)"
+            class="font-display-xl font-bold text-primary/[0.06] tracking-tighter leading-none flex items-center"
+            style="font-size: clamp(80px, 13vw, 240px)"
           >
-            <span id="hero-typing-left"></span>
-          </div>
-          <div
-            class="font-display-xl font-bold text-on-surface/[0.04] tracking-tighter leading-none flex items-center"
-            style="font-size: clamp(80px, 11vw, 200px)"
-          >
-            <span id="hero-typing-right"></span>
+            <span id="hero-typing-combined"></span>
             <span
-              class="w-[0.06em] bg-on-surface/[0.08] animate-pulse ml-2 lg:ml-4 h-[0.8em]"
+              class="w-[0.06em] bg-primary/[0.1] animate-pulse ml-2 lg:ml-4 h-[0.8em]"
             ></span>
           </div>
         </div>
@@ -1041,7 +1026,8 @@
                   institutions.
                 </p>
 
-                <button
+                <a
+                  href="courses.html"
                   class="w-full bg-[#081434] text-white py-4 rounded-2xl font-headline-md text-xs font-bold hover:bg-primary transition-all flex justify-center items-center gap-3 shadow-xl shadow-[#081434]/10 group-hover/card:scale-[1.02]"
                 >
                   Begin Your Journey
@@ -1049,7 +1035,7 @@
                     class="material-symbols-outlined text-sm group-hover/card:translate-x-1 transition-transform"
                     >arrow_forward</span
                   >
-                </button>
+                </a>
               </div>
               <!-- Decorative element inside card -->
               <div
@@ -2204,16 +2190,6 @@
                 alt="Kingsland Logo"
                 class="h-10 w-auto object-contain"
               />
-              <div class="flex flex-col">
-                <span
-                  class="text-2xl font-bold text-primary tracking-tight leading-none uppercase font-cinzel"
-                  >Kingsland</span
-                >
-                <span
-                  class="text-[9px] font-bold text-primary tracking-[0.05em] leading-none mt-1 uppercase"
-                  >International Education Group</span
-                >
-              </div>
             </div>
             <p class="text-on-surface-variant font-light text-lg mb-8 max-w-sm">
               Elite educational consulting. Architecting pathways to the world's
@@ -2613,7 +2589,7 @@
             </div>
           </div>
           <div class="flex items-center gap-6">
-            <span class="opacity-50">Global Legacy, Kings Land.</span>
+            <span class="opacity-50">KINGSLAND GLOBAL LEGACY</span>
           </div>
         </div>
       </div>
@@ -2649,14 +2625,10 @@
         });
 
         // Hero Typewriter Animation Logic
-        const leftEl = document.getElementById("hero-typing-left");
-        const rightEl = document.getElementById("hero-typing-right");
-        if (!leftEl || !rightEl) return;
+        const combinedEl = document.getElementById("hero-typing-combined");
+        if (!combinedEl) return;
 
-        const phrases = [
-          { left: "GLOBAL", right: "LEGACY" },
-          { left: "KINGS", right: "LAND" },
-        ];
+        const phrases = ["GLOBALLEGACY", "KINGSLAND"];
 
         let phraseIndex = 0;
         let charIndex = 0;
@@ -2664,41 +2636,18 @@
 
         function type() {
           const currentPhrase = phrases[phraseIndex];
-          const totalLen =
-            currentPhrase.left.length + currentPhrase.right.length;
 
           if (isDeleting) {
-            if (charIndex > currentPhrase.left.length) {
-              rightEl.textContent = currentPhrase.right.substring(
-                0,
-                charIndex - currentPhrase.left.length - 1,
-              );
-            } else {
-              rightEl.textContent = "";
-              leftEl.textContent = currentPhrase.left.substring(
-                0,
-                charIndex - 1,
-              );
-            }
+            combinedEl.textContent = currentPhrase.substring(0, charIndex - 1);
             charIndex--;
           } else {
-            if (charIndex < currentPhrase.left.length) {
-              leftEl.textContent = currentPhrase.left.substring(
-                0,
-                charIndex + 1,
-              );
-            } else {
-              rightEl.textContent = currentPhrase.right.substring(
-                0,
-                charIndex - currentPhrase.left.length + 1,
-              );
-            }
+            combinedEl.textContent = currentPhrase.substring(0, charIndex + 1);
             charIndex++;
           }
 
           let typeSpeed = isDeleting ? 40 : 80;
 
-          if (!isDeleting && charIndex >= totalLen) {
+          if (!isDeleting && charIndex >= currentPhrase.length) {
             typeSpeed = 3500;
             isDeleting = true;
           } else if (isDeleting && charIndex <= 0) {
