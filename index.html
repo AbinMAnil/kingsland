@@ -240,20 +240,22 @@
         top: 0;
         right: 0;
         width: 85%;
-        max-width: 360px;
+        max-width: 320px;
         height: 100dvh;
         background: #ffffff;
         z-index: 45;
-        transform: translateX(100%);
-        transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        transform: translateX(101%);
+        visibility: hidden;
+        transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1), visibility 0.4s;
         display: flex;
         flex-direction: column;
-        padding: 100px 32px 40px;
+        padding: 80px 24px 40px;
         box-shadow: -16px 0 48px rgba(0, 0, 0, 0.12);
         overflow-y: auto;
       }
       .mobile-menu.active {
         transform: translateX(0);
+        visibility: visible;
       }
       .mobile-menu a {
         display: block;
@@ -316,30 +318,206 @@
         }
 
         /* Layout & Spacing */
+        html, body { overflow-x: hidden !important; width: 100% !important; position: relative; }
         .py-section-gap { padding-top: 60px; padding-bottom: 60px; }
         .px-gutter { padding-left: 20px; padding-right: 20px; }
         .gap-20 { gap: 40px; }
         .mb-20 { margin-bottom: 40px; }
 
         /* Header */
-        #navbar { padding: 8px 0; }
-        #navbar > div { padding: 12px 20px; }
+        #navbar { 
+          padding: 0 !important; 
+          left: 0 !important; 
+          right: 0 !important; 
+          width: auto !important;
+          transform: none !important;
+        }
+        #navbar > div { 
+          padding: 14px 20px !important; 
+          width: auto !important; 
+          margin: 0 !important;
+          max-width: none !important;
+          border-radius: 0 !important;
+          border-left: none !important;
+          border-right: none !important;
+          border-top: none !important;
+          box-sizing: border-box !important;
+          display: flex !important;
+          justify-content: space-between !important;
+          align-items: center !important;
+        }
+        #navbar .text-\[20px\] { font-size: 19px !important; }
         .hamburger { display: flex; }
 
-        /* Hero */
-        #hero { min-height: 600px; padding-top: 120px !important; }
-        #hero .font-display-xl.text-\[44px\] { font-size: 32px !important; }
-        #hero .grid { display: block; }
-        #hero h1 { font-size: 42px !important; margin-bottom: 24px; }
-        #hero p { font-size: 16px !important; }
-
-        /* About & Stats */
-        #about .h-\[800px\] { height: 350px !important; }
-        #about .grid-cols-3 { grid-template-columns: repeat(1, 1fr); gap: 32px; border-top: none; padding-top: 0; }
-        #about .glass-effect { 
-          bottom: 20px !important; left: 20px !important; right: 20px !important; 
-          max-width: none !important; padding: 24px !important; 
+        /* ===================== HERO SECTION (MOBILE) ===================== */
+        #hero {
+          min-height: 680px !important;
+          max-height: 750px !important;
+          padding-top: 70px !important;
+          padding-bottom: 0 !important;
+          position: relative !important;
+          overflow: visible !important;
         }
+
+        /* Background "KINGS" / "LANDI" text at top */
+        #hero > div:first-of-type {
+          top: 70px !important;
+          padding-left: 8px !important;
+          padding-right: 8px !important;
+        }
+        #hero > div:first-of-type > div {
+          font-size: 80px !important;
+          line-height: 1 !important;
+          opacity: 0.06 !important;
+        }
+
+        /* Girl image container — full hero coverage */
+        #hero > div:nth-of-type(2) {
+          position: absolute !important;
+          bottom: 0 !important;
+          top: auto !important;
+          left: 50% !important;
+          transform: translateX(-50%) !important;
+          width: 100% !important;
+          max-width: none !important;
+          height: 70vh !important;
+          z-index: 10 !important;
+        }
+        #hero > div:nth-of-type(2) img {
+          transform: none !important;
+          margin: 0 auto !important;
+          height: 100% !important;
+          width: auto !important;
+          max-width: 100% !important;
+          object-fit: cover !important;
+          object-position: bottom center !important;
+        }
+
+        /* Content container — absolute overlay for positioning badge + card */
+        #hero > div:nth-of-type(3) {
+          position: absolute !important;
+          inset: 0 !important;
+          padding: 0 !important;
+          margin: 0 !important;
+          max-width: none !important;
+          display: block !important;
+          z-index: 30 !important;
+          pointer-events: none;
+        }
+
+        /* Hide the floating process cards (already hidden via md:block) */
+        #hero > div:nth-of-type(3) > div:first-child {
+          display: none !important;
+        }
+
+        /* Right-side wrapper (badge + stats card) — full overlay */
+        #hero > div:nth-of-type(3) > div:last-child {
+          position: absolute !important;
+          inset: 0 !important;
+          width: 100% !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          display: block !important;
+          pointer-events: none;
+        }
+
+        /* Google Verified Badge — top left */
+        #hero > div:nth-of-type(3) > div:last-child > div:first-child {
+          position: absolute !important;
+          top: 100px !important;
+          left: 12px !important;
+          transform: scale(0.8) !important;
+          transform-origin: top left !important;
+          z-index: 40 !important;
+          margin: 0 !important;
+          pointer-events: auto;
+        }
+
+        /* Stats Card — bottom right, slightly tilted */
+        #hero .bg-white\/90 {
+          position: absolute !important;
+          bottom: 30px !important;
+          right: 10px !important;
+          left: auto !important;
+          width: 200px !important;
+          padding: 18px 16px !important;
+          border-radius: 20px !important;
+          box-shadow: 0 16px 40px rgba(8, 20, 52, 0.18) !important;
+          background: rgba(255, 255, 255, 0.96) !important;
+          backdrop-filter: blur(16px) !important;
+          -webkit-backdrop-filter: blur(16px) !important;
+          transform: rotate(6deg) !important;
+          transform-origin: bottom right !important;
+          pointer-events: auto;
+          z-index: 35 !important;
+        }
+
+        /* "30/" number */
+        #hero .bg-white\/90 h3 {
+          font-size: 36px !important;
+          line-height: 1 !important;
+          margin-bottom: 2px !important;
+        }
+        #hero .bg-white\/90 h3 + div {
+          font-size: 9px !important;
+          letter-spacing: 0.15em !important;
+          margin-bottom: 10px !important;
+        }
+
+        /* Avatars — show them, smaller */
+        #hero .flex.-space-x-2\.5 {
+          display: flex !important;
+          margin-bottom: 10px !important;
+        }
+        #hero .flex.-space-x-2\.5 > div {
+          width: 24px !important;
+          height: 24px !important;
+        }
+
+        /* Description text */
+        #hero .bg-white\/90 p {
+          font-size: 10px !important;
+          line-height: 1.4 !important;
+          margin-bottom: 12px !important;
+        }
+
+        /* "Begin Your Journey" button */
+        #hero .bg-white\/90 button {
+          padding: 10px !important;
+          font-size: 11px !important;
+          border-radius: 12px !important;
+          gap: 6px !important;
+        }
+        #hero .bg-white\/90 button span {
+          font-size: 13px !important;
+        }
+
+        /* ===================== ABOUT SECTION (MOBILE) ===================== */
+        #about { padding-top: 40px !important; }
+        #about .h-\[800px\] {
+          height: 440px !important;
+          border-radius: 32px !important;
+          margin-bottom: 24px !important;
+        }
+        #about .grid-cols-3 { grid-template-columns: repeat(3, 1fr) !important; gap: 16px !important; text-align: center !important; }
+        #about .glass-effect {
+          bottom: 24px !important;
+          left: 16px !important;
+          right: 16px !important;
+          max-width: none !important;
+          padding: 28px 22px !important;
+          border-radius: 28px !important;
+          text-align: left !important;
+        }
+        #about .glass-effect .w-12 {
+          width: 40px !important;
+          height: 40px !important;
+        }
+        #about .glass-effect .text-xl {
+          font-size: 18px !important;
+        }
+        #about h2 { font-size: 26px !important; margin-bottom: 8px !important; }
+        #about p { font-size: 14px !important; line-height: 1.6 !important; }
 
         /* Why Us */
         .why-us-card div { transform: none !important; margin-bottom: 12px !important; }
@@ -380,15 +558,15 @@
     </style>
   </head>
   <body
-    class="bg-surface-container-lowest text-on-surface font-body-md antialiased selection:bg-primary-container selection:text-white overflow-x-hidden"
+    class="bg-surface-container-lowest text-on-surface font-body-md antialiased selection:bg-primary-container selection:text-white overflow-x-hidden w-full"
   >
     <!-- Navigation (Glassmorphism) -->
     <header
-      class="fixed top-0 w-full z-50 transition-all duration-300 px-6 py-6"
+      class="fixed top-0 left-0 w-full z-50 transition-all duration-300"
       id="navbar"
     >
       <div
-        class="glass-effect rounded-full px-8 py-4 max-w-container-max mx-auto flex justify-between items-center shadow-[0_8px_32px_rgba(0,0,0,0.04)]"
+        class="glass-effect rounded-full px-5 py-3 md:px-8 md:py-4 max-w-container-max mx-auto flex justify-between items-center shadow-[0_12px_40px_rgba(0,0,0,0.06)] border border-white/40"
       >
         <div
           class="font-display-xl text-2xl font-bold tracking-tight text-on-surface flex items-center gap-3"
@@ -503,24 +681,22 @@
 
         <!-- Center Image & Floating UI -->
         <div
-          class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] z-10 flex justify-center items-end h-[86%] pointer-events-none"
+          class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[1100px] z-10 flex justify-center items-end h-[82%] pointer-events-none"
         >
-          <!-- Floating UI Elements moved to left block -->
-
           <img
             src="./image.png"
             alt="Student"
-            class="h-full w-auto object-contain object-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.08)] relative z-10"
+            class="h-full w-auto object-contain object-bottom drop-shadow-[0_20px_50px_rgba(0,0,0,0.1)] relative z-10 opacity-90"
           />
           <!-- Bottom Gradient to blend image into surface -->
           <div
-            class="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-surface-container-lowest to-transparent z-20"
+            class="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/80 to-transparent z-20"
           ></div>
         </div>
 
         <!-- Content at the bottom -->
         <div
-          class="relative z-20 max-w-container-max mx-auto px-gutter w-full pb-12 lg:pb-16 flex flex-col md:flex-row justify-between items-end gap-10 mt-64 lg:mt-auto h-full"
+          class="relative z-20 max-w-container-max mx-auto px-gutter w-full pb-12 lg:pb-16 flex flex-col md:flex-row justify-between items-end gap-10 mt-auto h-full"
         >
           <!-- Left side content: Floating Cards -->
           <div
@@ -650,12 +826,11 @@
           <div
             class="reveal-on-scroll flex flex-col md:items-end w-full md:w-auto relative z-30 mb-8 md:mb-12"
           >
-            <!-- Eyebrow text above card -->
             <!-- Google Reviews Badge -->
             <div
-              class="flex items-center gap-4 py-2 px-5 bg-white rounded-full border border-outline-variant shadow-[0_4px_12px_rgba(0,0,0,0.05)] w-fit mb-6 reveal-on-scroll self-start md:self-end mr-4 transition-transform hover:scale-105 duration-300 transform rotate-[-2deg]"
+              class="flex items-center gap-4 py-2.5 px-6 bg-white/80 backdrop-blur-md rounded-full border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.05)] w-fit mb-4 reveal-on-scroll self-start md:self-end mr-4 transition-all hover:scale-105 duration-500 transform rotate-[-3deg] hover:rotate-0"
             >
-              <div class="flex items-center gap-2.5">
+              <div class="flex items-center gap-3">
                 <div class="w-6 h-6 flex items-center justify-center">
                   <svg viewBox="0 0 24 24" class="w-5 h-5">
                     <path
@@ -678,28 +853,28 @@
                 </div>
                 <div class="flex flex-col">
                   <span
-                    class="text-[10px] font-bold text-on-surface leading-none uppercase tracking-tighter"
-                    >Reviews</span
+                    class="text-[9px] font-black text-on-surface leading-none uppercase tracking-widest"
+                    >Verified</span
                   >
-                  <div class="flex items-center gap-0.5 mt-0.5">
+                  <div class="flex items-center gap-0.5 mt-1">
                     <span
-                      class="material-symbols-outlined text-[10px] fill-current text-[#FBBC05]"
+                      class="material-symbols-outlined text-[11px] fill-current text-[#FBBC05]"
                       >star</span
                     >
                     <span
-                      class="material-symbols-outlined text-[10px] fill-current text-[#FBBC05]"
+                      class="material-symbols-outlined text-[11px] fill-current text-[#FBBC05]"
                       >star</span
                     >
                     <span
-                      class="material-symbols-outlined text-[10px] fill-current text-[#FBBC05]"
+                      class="material-symbols-outlined text-[11px] fill-current text-[#FBBC05]"
                       >star</span
                     >
                     <span
-                      class="material-symbols-outlined text-[10px] fill-current text-[#FBBC05]"
+                      class="material-symbols-outlined text-[11px] fill-current text-[#FBBC05]"
                       >star</span
                     >
                     <span
-                      class="material-symbols-outlined text-[10px] fill-current text-[#FBBC05]"
+                      class="material-symbols-outlined text-[11px] fill-current text-[#FBBC05]"
                       >star_half</span
                     >
                   </div>
@@ -708,73 +883,73 @@
               <div class="w-px h-6 bg-outline-variant/30"></div>
               <div class="flex items-center gap-1.5">
                 <span class="text-sm font-bold text-on-surface">4.5/5</span>
-                <span class="text-[10px] text-on-surface-variant font-medium"
-                  >Reviews</span
-                >
               </div>
             </div>
 
-            <!-- White Card -->
+            <!-- Stats Card -->
             <div
-              class="bg-white rounded-xl p-8 w-full md:w-[340px] shadow-[0_20px_60px_rgba(27,38,37,0.06)] border border-outline-variant/30 text-on-surface text-left"
+              class="bg-white/90 backdrop-blur-xl rounded-3xl p-8 w-full md:w-[320px] shadow-[0_32px_64px_rgba(0,0,0,0.1)] border border-white transition-transform duration-500 hover:-translate-y-2 group/card overflow-hidden"
             >
-              <h3
-                class="font-display-xl text-[56px] font-bold leading-none mb-1"
-              >
-                30<span class="text-primary-container">+</span>
-              </h3>
-              <div
-                class="font-headline-md text-sm font-bold text-on-surface mb-6 uppercase tracking-wide"
-              >
-                Study Destinations
+              <div class="relative z-10">
+                <h3
+                  class="font-display-xl text-[64px] font-bold leading-none mb-1 text-on-surface"
+                >
+                  30<span class="text-primary-container">/</span>
+                </h3>
+                <div
+                  class="font-headline-md text-xs font-bold text-on-surface-variant mb-6 uppercase tracking-[0.2em]"
+                >
+                  Study Destinations
+                </div>
+
+                <div class="flex -space-x-2.5 mb-6">
+                  <div
+                    class="w-9 h-9 rounded-full border-2 border-white overflow-hidden shadow-sm ring-1 ring-black/5"
+                  >
+                    <img
+                      src="https://i.pravatar.cc/100?img=1"
+                      alt="Student 1"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div
+                    class="w-9 h-9 rounded-full border-2 border-white overflow-hidden shadow-sm ring-1 ring-black/5"
+                  >
+                    <img
+                      src="https://i.pravatar.cc/100?img=2"
+                      alt="Student 2"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div
+                    class="w-9 h-9 rounded-full border-2 border-white overflow-hidden shadow-sm ring-1 ring-black/5"
+                  >
+                    <img
+                      src="https://i.pravatar.cc/100?img=3"
+                      alt="Student 3"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+
+                <p
+                  class="font-body-sm text-[13px] text-on-surface-variant font-light leading-relaxed mb-8"
+                >
+                  Empowering ambitious minds to secure placement in elite global institutions.
+                </p>
+
+                <button
+                  class="w-full bg-[#081434] text-white py-4 rounded-2xl font-headline-md text-xs font-bold hover:bg-primary transition-all flex justify-center items-center gap-3 shadow-xl shadow-[#081434]/10 group-hover/card:scale-[1.02]"
+                >
+                  Begin Your Journey
+                  <span
+                    class="material-symbols-outlined text-sm group-hover/card:translate-x-1 transition-transform"
+                    >arrow_forward</span
+                  >
+                </button>
               </div>
-
-              <div class="flex -space-x-3 mb-5">
-                <div
-                  class="w-10 h-10 rounded-full bg-surface-container-highest border-2 border-white overflow-hidden shadow-sm"
-                >
-                  <img
-                    src="https://i.pravatar.cc/100?img=1"
-                    alt="Student 1"
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-                <div
-                  class="w-10 h-10 rounded-full bg-surface-container-high border-2 border-white overflow-hidden shadow-sm"
-                >
-                  <img
-                    src="https://i.pravatar.cc/100?img=2"
-                    alt="Student 2"
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-                <div
-                  class="w-10 h-10 rounded-full bg-surface-container border-2 border-white overflow-hidden shadow-sm"
-                >
-                  <img
-                    src="https://i.pravatar.cc/100?img=3"
-                    alt="Student 3"
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-
-              <p
-                class="font-body-sm text-[13px] text-on-surface-variant font-light leading-relaxed mb-6"
-              >
-                Matching top students with prestigious universities worldwide.
-              </p>
-
-              <button
-                class="w-full bg-primary-container text-white py-3.5 rounded-xl font-headline-md text-sm font-semibold hover:bg-[#4a26b4] transition-all flex justify-center items-center gap-2 shadow-lg shadow-primary-container/20"
-              >
-                Begin Your Journey
-                <span
-                  class="material-symbols-outlined text-lg"
-                  data-icon="arrow_forward"
-                  >arrow_forward</span
-                >
-              </button>
+              <!-- Decorative element inside card -->
+              <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-primary-container/5 rounded-full blur-3xl group-hover/card:bg-primary-container/10 transition-colors"></div>
             </div>
           </div>
         </div>
@@ -787,10 +962,9 @@
               class="relative h-[800px] rounded-[2rem] overflow-hidden reveal-on-scroll"
             >
               <img
-                alt="Premium Consultation"
+                src="./students.png"
+                alt="Kingsland Students"
                 class="w-full h-full object-cover"
-                data-alt="A high-end, cinematic lifestyle shot of an elite educational consultant having a bespoke, focused session with a discerning student. The setting is a luxurious, minimalist office with modern art and soft, dramatic lighting. The mood is sophisticated, professional, and deeply trustworthy."
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc80B7UFGmVXluf3LvVWsTGiULZpLdwuxatcn7IhIADkNdEVpcwYbNlp3QwhUugmY6comANpiKjsadP2_WKxReCzduHrt-MkhKq1g-_zJNXNfzo7Crx4EOcP1jmZYa3e92L1-8IXtiKyYLk1nyCl2JBoQBwW4HhMQHQVqNt5oT422Qh6Qv533Kde7PzV1JTrRcXo1CgtbhCDCO1QuvSwdPt6tp7ZXB_yvuMbUSJ79X9GzTLXksZ5I3g5VyMvlxK_KH12Z9HLK3aqo"
               />
               <div
                 class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"
@@ -1587,45 +1761,46 @@
               international academic success.
             </p>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
             <!-- Service Card 1 -->
             <div class="service-card opacity-0">
               <div
-                class="group relative rounded-[2rem] overflow-hidden h-[600px] flex flex-col shadow-lg"
+                class="group relative rounded-[2.5rem] overflow-hidden h-[650px] flex flex-col shadow-2xl transition-all duration-500 hover:shadow-primary/20"
               >
                 <img
                   alt="Distance Education"
-                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  data-alt="A sophisticated home office setup featuring a sleek modern laptop displaying a virtual classroom. A cup of artisan coffee sits nearby on a pristine white desk. Soft morning light creates a clean, minimalist aesthetic. The overall mood conveys high-end distance education and modern academic sophistication."
+                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeVCVMW2VHERpG9TKprmCstN3gkIEnFcjy3pLpgvExTMWHiVbSm2vte6WJVzEADbfpe20ojmBLPezDJjZDIEIQudovghg8ZUZNXJZOZH0DQXlm8S3QNzV6qCCha-sBQ0WLGTmr1vh-GW7dUb_MBohbi-w_zJsrGsGXFX_uouCaa1QKXl_JGdugJMnGO0bnQuJyrvgDccR-Ndr2CpIV63kIjbn0SietLrTX2gUxMfeKz8btfqBGP1lazNCc-8r71o_zRYA1onqbGIs"
                 />
                 <div
-                  class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"
+                  class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80"
                 ></div>
                 <div
-                  class="relative z-10 p-10 mt-auto glass-effect m-4 rounded-[1.5rem] group-hover:bg-white/90 transition-colors duration-500"
+                  class="relative z-10 p-12 mt-auto glass-effect m-6 rounded-[2rem] group-hover:bg-white/95 transition-all duration-500 transform group-hover:-translate-y-2"
                 >
-                  <h3 class="font-headline-md text-3xl text-on-surface mb-4">
+                  <div class="mb-4">
+                    <span class="text-primary font-display-sm text-xs tracking-widest uppercase">Global Access</span>
+                  </div>
+                  <h3 class="font-headline-md text-4xl text-on-surface mb-6">
                     Distance Education
                   </h3>
                   <p
-                    class="text-on-surface-variant font-light mb-8 line-clamp-2"
+                    class="text-on-surface-variant font-light mb-10 text-lg leading-relaxed line-clamp-3"
                   >
                     Access elite global programs from anywhere. We partner with
                     prestigious institutions to bring world-class learning to
-                    your doorstep.
+                    your doorstep with full digital support.
                   </p>
                   <a
-                    class="inline-flex items-center justify-between w-full text-on-surface font-headline-md text-sm tracking-wider uppercase group/link"
-                    href="#"
+                    class="inline-flex items-center justify-between w-full text-on-surface font-headline-md text-sm tracking-widest uppercase group/link"
+                    href="courses.html"
                   >
-                    Discover
+                    Explore Programs
                     <span
-                      class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center group-hover/link:bg-on-surface group-hover/link:text-white transition-all"
+                      class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center group-hover/link:bg-primary group-hover/link:text-white group-hover/link:border-primary transition-all duration-500"
                     >
                       <span
-                        class="material-symbols-outlined text-sm"
-                        data-icon="arrow_forward"
+                        class="material-symbols-outlined text-xl"
                         >arrow_forward</span
                       >
                     </span>
@@ -1636,85 +1811,42 @@
             <!-- Service Card 2 -->
             <div class="service-card opacity-0">
               <div
-                class="group relative rounded-[2rem] overflow-hidden h-[600px] flex flex-col md:translate-y-12 shadow-lg"
+                class="group relative rounded-[2.5rem] overflow-hidden h-[650px] flex flex-col md:mt-24 shadow-2xl transition-all duration-500 hover:shadow-primary/20"
               >
                 <img
                   alt="Study Abroad"
-                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  data-alt="A dynamic, high-quality image of young, stylish international students walking confidently across a European city square. The architecture is historic yet the lighting and composition are distinctly modern and vibrant. The scene emphasizes global connectivity, cultural immersion, and premium study abroad experiences."
+                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEJ0UMYNi0QbExNhPSO6bjnAvj8LbilTMLnxinQlq9n5VYNNzT2g4fFzUO9yYbj9iuhoaNrgoQEl_Tk1T9NXr1HZiFy8uqqr5HwKV8HtzvYRc6E29p5eJyHqbFLcL-nlhZ7tjBm-h5WS_nOjzlW168y3289v1wumAw_myd3rL6D5ZGfIWXA3YjPfYoNIiQXr9pxxtGRywpDaUTT9Lz42tnxXtipS-OxT0Vbw9r_6tnWL7olxGQRdj17cujcTcZFC7hxDLSc-JoRB8"
                 />
                 <div
-                  class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"
+                  class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80"
                 ></div>
                 <div
-                  class="relative z-10 p-10 mt-auto glass-effect m-4 rounded-[1.5rem] group-hover:bg-white/90 transition-colors duration-500"
+                  class="relative z-10 p-12 mt-auto glass-effect m-6 rounded-[2rem] group-hover:bg-white/95 transition-all duration-500 transform group-hover:-translate-y-2"
                 >
-                  <h3 class="font-headline-md text-3xl text-on-surface mb-4">
+                  <div class="mb-4">
+                    <span class="text-primary font-display-sm text-xs tracking-widest uppercase">Cultural Immersion</span>
+                  </div>
+                  <h3 class="font-headline-md text-4xl text-on-surface mb-6">
                     Study Abroad
                   </h3>
                   <p
-                    class="text-on-surface-variant font-light mb-8 line-clamp-2"
+                    class="text-on-surface-variant font-light mb-10 text-lg leading-relaxed line-clamp-3"
                   >
                     Immersive international learning experiences. From
-                    university selection to visa processing, we handle the
-                    complexities.
+                    university selection to visa processing, we handle every
+                    meticulous detail of your global journey.
                   </p>
                   <a
-                    class="inline-flex items-center justify-between w-full text-on-surface font-headline-md text-sm tracking-wider uppercase group/link"
-                    href="#"
+                    class="inline-flex items-center justify-between w-full text-on-surface font-headline-md text-sm tracking-widest uppercase group/link"
+                    href="contact.html"
                   >
-                    Discover
+                    Plan Your Journey
                     <span
-                      class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center group-hover/link:bg-on-surface group-hover/link:text-white transition-all"
+                      class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center group-hover/link:bg-primary group-hover/link:text-white group-hover/link:border-primary transition-all duration-500"
                     >
                       <span
-                        class="material-symbols-outlined text-sm"
-                        data-icon="arrow_forward"
-                        >arrow_forward</span
-                      >
-                    </span>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <!-- Service Card 3 -->
-            <div class="service-card opacity-0">
-              <div
-                class="group relative rounded-[2rem] overflow-hidden h-[600px] flex flex-col md:translate-y-24 shadow-lg"
-              >
-                <img
-                  alt="Immigration Services"
-                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  data-alt="A macro shot of a sleek fountain pen signing official travel documents or a passport on a pristine desk. The focus is sharp, the lighting is dramatic and professional. The mood is secure, authoritative, and sophisticated, representing immigration services."
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsnr3W4AY_BWGZncDw-0e2jrhIhfcWDHgPI_80DIjI1vBRNaAxnVA5EWnMz5vcPpBfHvLerQ9kHeVpYJx-m87AImwng7wCo0JEemj085sojN_EtkUN5Bz_-VnetLM7Z46ryPsHS8iS3YpTFaLUXIbE8HlG2LEOjIVS1PYEiTZ0eGRkcSMBisqM27CjpQCb_KyxGvxLCtdHNxlt275XvKl_BqOwynUtyytB-OAj2h5TXL34L3Bie5mY7GyFDk7Jb2XNK-Pc6U4zmuc"
-                />
-                <div
-                  class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"
-                ></div>
-                <div
-                  class="relative z-10 p-10 mt-auto glass-effect m-4 rounded-[1.5rem] group-hover:bg-white/90 transition-colors duration-500"
-                >
-                  <h3 class="font-headline-md text-3xl text-on-surface mb-4">
-                    Immigration
-                  </h3>
-                  <p
-                    class="text-on-surface-variant font-light mb-8 line-clamp-2"
-                  >
-                    Expert guidance through post-study work visas and permanent
-                    residency pathways, ensuring seamless transitions.
-                  </p>
-                  <a
-                    class="inline-flex items-center justify-between w-full text-on-surface font-headline-md text-sm tracking-wider uppercase group/link"
-                    href="#"
-                  >
-                    Discover
-                    <span
-                      class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center group-hover/link:bg-on-surface group-hover/link:text-white transition-all"
-                    >
-                      <span
-                        class="material-symbols-outlined text-sm"
-                        data-icon="arrow_forward"
+                        class="material-symbols-outlined text-xl"
                         >arrow_forward</span
                       >
                     </span>
@@ -1932,14 +2064,14 @@
             Connect with our expert consultants today and initiate your journey
             toward international academic excellence.
           </p>
-          <button
-            class="bg-surface-container-lowest text-primary-container px-12 py-6 rounded-full font-headline-md text-lg font-bold hover:bg-gray-50 transition-all hover:scale-105 shadow-[0_20px_40px_rgba(0,0,0,0.2)] flex items-center gap-3 mx-auto"
+          <a
+            href="https://wa.me/971523212044"
+            target="_blank"
+            class="bg-surface-container-lowest text-primary-container px-12 py-6 rounded-full font-headline-md text-lg font-bold hover:bg-gray-50 transition-all hover:scale-105 shadow-[0_20px_40px_rgba(0,0,0,0.2)] flex items-center gap-3 mx-auto w-fit"
           >
             Schedule a Consultation
-            <span class="material-symbols-outlined" data-icon="arrow_forward"
-              >arrow_forward</span
-            >
-          </button>
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
         </div>
       </section>
     </main>
