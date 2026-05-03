@@ -246,7 +246,9 @@
         z-index: 45;
         transform: translateX(101%);
         visibility: hidden;
-        transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1), visibility 0.4s;
+        transition:
+          transform 0.4s cubic-bezier(0.77, 0, 0.175, 1),
+          visibility 0.4s;
         display: flex;
         flex-direction: column;
         padding: 80px 24px 40px;
@@ -260,17 +262,19 @@
       .mobile-menu a {
         display: block;
         padding: 16px 0;
-        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-family: "Plus Jakarta Sans", sans-serif;
         font-size: 18px;
         font-weight: 600;
         color: #081434;
         border-bottom: 1px solid rgba(209, 217, 230, 0.5);
-        transition: color 0.2s, padding-left 0.2s;
+        transition:
+          color 0.2s,
+          padding-left 0.2s;
         text-decoration: none;
       }
       .mobile-menu a:hover,
       .mobile-menu a:active {
-        color: #D4AF37;
+        color: #d4af37;
         padding-left: 8px;
       }
       .mobile-menu .mobile-cta {
@@ -309,32 +313,58 @@
         }
 
         /* Typography */
-        .font-headline-lg { font-size: 32px !important; line-height: 1.2 !important; }
-        .font-display-xl { font-size: 40px !important; line-height: 1.1 !important; }
-        .font-body-lg { font-size: 16px !important; }
-        .text-\[56px\], .text-\[64px\], .text-\[72px\], .text-\[44px\] { 
-          font-size: 28px !important; 
-          line-height: 1.15 !important; 
+        .font-headline-lg {
+          font-size: 32px !important;
+          line-height: 1.2 !important;
+        }
+        .font-display-xl {
+          font-size: 40px !important;
+          line-height: 1.1 !important;
+        }
+        .font-body-lg {
+          font-size: 16px !important;
+        }
+        .text-\[56px\],
+        .text-\[64px\],
+        .text-\[72px\],
+        .text-\[44px\] {
+          font-size: 28px !important;
+          line-height: 1.15 !important;
         }
 
         /* Layout & Spacing */
-        html, body { overflow-x: hidden !important; width: 100% !important; position: relative; }
-        .py-section-gap { padding-top: 60px; padding-bottom: 60px; }
-        .px-gutter { padding-left: 20px; padding-right: 20px; }
-        .gap-20 { gap: 40px; }
-        .mb-20 { margin-bottom: 40px; }
+        html,
+        body {
+          overflow-x: hidden !important;
+          width: 100% !important;
+          position: relative;
+        }
+        .py-section-gap {
+          padding-top: 60px;
+          padding-bottom: 60px;
+        }
+        .px-gutter {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+        .gap-20 {
+          gap: 40px;
+        }
+        .mb-20 {
+          margin-bottom: 40px;
+        }
 
         /* Header */
-        #navbar { 
-          padding: 0 !important; 
-          left: 0 !important; 
-          right: 0 !important; 
+        #navbar {
+          padding: 0 !important;
+          left: 0 !important;
+          right: 0 !important;
           width: auto !important;
           transform: none !important;
         }
-        #navbar > div { 
-          padding: 14px 20px !important; 
-          width: auto !important; 
+        #navbar > div {
+          padding: 14px 20px !important;
+          width: auto !important;
           margin: 0 !important;
           max-width: none !important;
           border-radius: 0 !important;
@@ -346,8 +376,12 @@
           justify-content: space-between !important;
           align-items: center !important;
         }
-        #navbar .text-\[20px\] { font-size: 19px !important; }
-        .hamburger { display: flex; }
+        #navbar .text-\[20px\] {
+          font-size: 19px !important;
+        }
+        .hamburger {
+          display: flex;
+        }
 
         /* ===================== HERO SECTION (MOBILE) ===================== */
         #hero {
@@ -493,13 +527,19 @@
         }
 
         /* ===================== ABOUT SECTION (MOBILE) ===================== */
-        #about { padding-top: 40px !important; }
+        #about {
+          padding-top: 40px !important;
+        }
         #about .h-\[800px\] {
           height: 440px !important;
           border-radius: 32px !important;
           margin-bottom: 24px !important;
         }
-        #about .grid-cols-3 { grid-template-columns: repeat(3, 1fr) !important; gap: 16px !important; text-align: center !important; }
+        #about .grid-cols-3 {
+          grid-template-columns: repeat(3, 1fr) !important;
+          gap: 16px !important;
+          text-align: center !important;
+        }
         #about .glass-effect {
           bottom: 24px !important;
           left: 16px !important;
@@ -516,44 +556,94 @@
         #about .glass-effect .text-xl {
           font-size: 18px !important;
         }
-        #about h2 { font-size: 26px !important; margin-bottom: 8px !important; }
-        #about p { font-size: 14px !important; line-height: 1.6 !important; }
+        #about h2 {
+          font-size: 26px !important;
+          margin-bottom: 8px !important;
+        }
+        #about p {
+          font-size: 14px !important;
+          line-height: 1.6 !important;
+        }
 
         /* Why Us */
-        .why-us-card div { transform: none !important; margin-bottom: 12px !important; }
-        #why-us .grid { gap: 16px; }
+        .why-us-card div {
+          transform: none !important;
+          margin-bottom: 12px !important;
+        }
+        #why-us .grid {
+          gap: 16px;
+        }
 
         /* Core Values */
-        #values .grid { grid-template-columns: repeat(1, 1fr); gap: 16px; perspective: none !important; }
-        .value-card { 
-          transform: none !important; 
-          opacity: 1 !important; 
-          visibility: visible !important; 
+        #values .grid {
+          grid-template-columns: repeat(1, 1fr);
+          gap: 16px;
+          perspective: none !important;
+        }
+        .value-card {
+          transform: none !important;
+          opacity: 1 !important;
+          visibility: visible !important;
         }
 
         /* Colleges & Services */
-        .college-card .h-\[400px\] { height: 240px !important; }
-        .college-card h3, #services h3 { font-size: 22px !important; }
-        .college-card .p-10 { padding: 24px !important; }
-        #services .h-\[600px\] { height: 380px !important; }
+        .college-card .h-\[400px\] {
+          height: 240px !important;
+        }
+        .college-card h3,
+        #services h3 {
+          font-size: 22px !important;
+        }
+        .college-card .p-10 {
+          padding: 24px !important;
+        }
+        #services .h-\[600px\] {
+          height: 380px !important;
+        }
 
         /* CTA */
-        #cta { padding: 80px 20px !important; }
-        #cta .flex-row { flex-direction: column; text-align: center; gap: 40px; }
-        #cta h2 { font-size: 36px !important; }
+        #cta {
+          padding: 80px 20px !important;
+        }
+        #cta .flex-row {
+          flex-direction: column;
+          text-align: center;
+          gap: 40px;
+        }
+        #cta h2 {
+          font-size: 36px !important;
+        }
 
         /* Footer */
-        footer .grid { grid-template-columns: repeat(1, 1fr) !important; gap: 40px; }
-        footer .pt-20 { padding-top: 40px !important; }
-        footer .p-10 { padding: 24px !important; }
+        footer .grid {
+          grid-template-columns: repeat(1, 1fr) !important;
+          gap: 40px;
+        }
+        footer .pt-20 {
+          padding-top: 40px !important;
+        }
+        footer .p-10 {
+          padding: 24px !important;
+        }
       }
 
       @media (max-width: 480px) {
-        #hero h1 { font-size: 36px !important; }
-        .font-headline-lg { font-size: 28px !important; }
-        #about .glass-effect { padding: 20px !important; }
-        #about .text-\[64px\] { font-size: 28px !important; }
-        #about .tracking-widest { font-size: 10px; letter-spacing: 0.08em; }
+        #hero h1 {
+          font-size: 36px !important;
+        }
+        .font-headline-lg {
+          font-size: 28px !important;
+        }
+        #about .glass-effect {
+          padding: 20px !important;
+        }
+        #about .text-\[64px\] {
+          font-size: 28px !important;
+        }
+        #about .tracking-widest {
+          font-size: 10px;
+          letter-spacing: 0.08em;
+        }
       }
     </style>
   </head>
@@ -576,10 +666,14 @@
             alt="Kingsland Logo"
             class="h-9 w-auto object-contain block"
           />
-          <span
-            class="text-[20px] font-bold text-primary tracking-tight leading-none pt-0.5"
-            >Kingsland</span
-          >
+          <div class="flex flex-col">
+            <span class="text-[20px] font-bold text-primary tracking-tight leading-none"
+              >Kingsland</span
+            >
+            <span class="text-[7px] font-bold text-primary tracking-[0.05em] leading-none mt-1 uppercase"
+              >International Education Group</span
+            >
+          </div>
         </div>
         <nav
           class="hidden md:flex gap-8 font-headline-md text-[14px] font-medium"
@@ -627,7 +721,12 @@
           Contact Us
         </a>
         <!-- Hamburger (mobile only) -->
-        <button class="hamburger" id="hamburger-btn" aria-label="Open menu" aria-expanded="false">
+        <button
+          class="hamburger"
+          id="hamburger-btn"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
           <span></span>
           <span></span>
           <span></span>
@@ -935,7 +1034,8 @@
                 <p
                   class="font-body-sm text-[13px] text-on-surface-variant font-light leading-relaxed mb-8"
                 >
-                  Empowering ambitious minds to secure placement in elite global institutions.
+                  Empowering ambitious minds to secure placement in elite global
+                  institutions.
                 </p>
 
                 <button
@@ -949,7 +1049,9 @@
                 </button>
               </div>
               <!-- Decorative element inside card -->
-              <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-primary-container/5 rounded-full blur-3xl group-hover/card:bg-primary-container/10 transition-colors"></div>
+              <div
+                class="absolute -bottom-10 -right-10 w-32 h-32 bg-primary-container/5 rounded-full blur-3xl group-hover/card:bg-primary-container/10 transition-colors"
+              ></div>
             </div>
           </div>
         </div>
@@ -1531,9 +1633,9 @@
                 <p
                   class="font-body-lg text-xl text-on-surface-variant font-light leading-relaxed"
                 >
-                  We partner with india's leading institutions to provide
-                  skill-based, industry-aligned education that prepares you for
-                  global success.
+                  We partner with india's leading UGC approved Universities to
+                  provide skill-based, industry-aligned education that prepares
+                  you for global success.
                 </p>
                 <div class="pt-8 border-t border-outline-variant">
                   <div class="flex items-center gap-4 text-on-surface-variant">
@@ -1779,7 +1881,10 @@
                   class="relative z-10 p-12 mt-auto glass-effect m-6 rounded-[2rem] group-hover:bg-white/95 transition-all duration-500 transform group-hover:-translate-y-2"
                 >
                   <div class="mb-4">
-                    <span class="text-primary font-display-sm text-xs tracking-widest uppercase">Global Access</span>
+                    <span
+                      class="text-primary font-display-sm text-xs tracking-widest uppercase"
+                      >Global Access</span
+                    >
                   </div>
                   <h3 class="font-headline-md text-4xl text-on-surface mb-6">
                     Distance Education
@@ -1799,8 +1904,7 @@
                     <span
                       class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center group-hover/link:bg-primary group-hover/link:text-white group-hover/link:border-primary transition-all duration-500"
                     >
-                      <span
-                        class="material-symbols-outlined text-xl"
+                      <span class="material-symbols-outlined text-xl"
                         >arrow_forward</span
                       >
                     </span>
@@ -1825,7 +1929,10 @@
                   class="relative z-10 p-12 mt-auto glass-effect m-6 rounded-[2rem] group-hover:bg-white/95 transition-all duration-500 transform group-hover:-translate-y-2"
                 >
                   <div class="mb-4">
-                    <span class="text-primary font-display-sm text-xs tracking-widest uppercase">Cultural Immersion</span>
+                    <span
+                      class="text-primary font-display-sm text-xs tracking-widest uppercase"
+                      >Cultural Immersion</span
+                    >
                   </div>
                   <h3 class="font-headline-md text-4xl text-on-surface mb-6">
                     Study Abroad
@@ -1845,8 +1952,7 @@
                     <span
                       class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center group-hover/link:bg-primary group-hover/link:text-white group-hover/link:border-primary transition-all duration-500"
                     >
-                      <span
-                        class="material-symbols-outlined text-xl"
+                      <span class="material-symbols-outlined text-xl"
                         >arrow_forward</span
                       >
                     </span>
@@ -2093,7 +2199,14 @@
                 alt="Kingsland Logo"
                 class="h-10 w-auto object-contain"
               />
-              Kingsland International
+              <div class="flex flex-col">
+                <span class="text-xl font-bold text-primary tracking-tight leading-none"
+                  >Kingsland</span
+                >
+                <span class="text-[8px] font-bold text-primary tracking-[0.05em] leading-none mt-1 uppercase"
+                  >International Education Group</span
+                >
+              </div>
             </div>
             <p class="text-on-surface-variant font-light text-lg mb-8 max-w-sm">
               Elite educational consulting. Architecting pathways to the world's
@@ -2507,7 +2620,8 @@
         const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
 
         function toggleMenu(force = null) {
-          const isOpen = force !== null ? force : !hamburgerBtn.classList.contains("active");
+          const isOpen =
+            force !== null ? force : !hamburgerBtn.classList.contains("active");
           hamburgerBtn.classList.toggle("active", isOpen);
           mobileMenu.classList.toggle("active", isOpen);
           mobileOverlay.classList.toggle("active", isOpen);
@@ -2543,21 +2657,34 @@
 
         function type() {
           const currentPhrase = phrases[phraseIndex];
-          const totalLen = currentPhrase.left.length + currentPhrase.right.length;
+          const totalLen =
+            currentPhrase.left.length + currentPhrase.right.length;
 
           if (isDeleting) {
             if (charIndex > currentPhrase.left.length) {
-              rightEl.textContent = currentPhrase.right.substring(0, charIndex - currentPhrase.left.length - 1);
+              rightEl.textContent = currentPhrase.right.substring(
+                0,
+                charIndex - currentPhrase.left.length - 1,
+              );
             } else {
               rightEl.textContent = "";
-              leftEl.textContent = currentPhrase.left.substring(0, charIndex - 1);
+              leftEl.textContent = currentPhrase.left.substring(
+                0,
+                charIndex - 1,
+              );
             }
             charIndex--;
           } else {
             if (charIndex < currentPhrase.left.length) {
-              leftEl.textContent = currentPhrase.left.substring(0, charIndex + 1);
+              leftEl.textContent = currentPhrase.left.substring(
+                0,
+                charIndex + 1,
+              );
             } else {
-              rightEl.textContent = currentPhrase.right.substring(0, charIndex - currentPhrase.left.length + 1);
+              rightEl.textContent = currentPhrase.right.substring(
+                0,
+                charIndex - currentPhrase.left.length + 1,
+              );
             }
             charIndex++;
           }
@@ -2584,19 +2711,28 @@
         // Global Reveal on Scroll
         const revealElements = document.querySelectorAll(".reveal-on-scroll");
         revealElements.forEach((el) => {
-          gsap.fromTo(el, { y: 60, opacity: 0 }, {
-            y: 0, opacity: 1, duration: 1.2, ease: "power3.out",
-            scrollTrigger: { trigger: el, start: "top 85%", once: true }
-          });
+          gsap.fromTo(
+            el,
+            { y: 60, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 1.2,
+              ease: "power3.out",
+              scrollTrigger: { trigger: el, start: "top 85%", once: true },
+            },
+          );
         });
 
         const counters = document.querySelectorAll(".count-up");
         counters.forEach((counter) => {
           const target = parseInt(counter.getAttribute("data-target"));
           gsap.to(counter, {
-            innerHTML: target, duration: 2.5, ease: "power2.out",
+            innerHTML: target,
+            duration: 2.5,
+            ease: "power2.out",
             snap: { innerHTML: 1 },
-            scrollTrigger: { trigger: counter, start: "top 85%", once: true }
+            scrollTrigger: { trigger: counter, start: "top 85%", once: true },
           });
         });
 
@@ -2604,40 +2740,92 @@
         const whyUsCards = document.querySelectorAll(".why-us-card");
         if (whyUsCards.length === 6) {
           const directions = [
-            { x: -150, y: 0 }, { x: 0, y: -150 }, { x: 150, y: 0 },
-            { x: -150, y: 0 }, { x: 0, y: 150 }, { x: 150, y: 0 }
+            { x: -150, y: 0 },
+            { x: 0, y: -150 },
+            { x: 150, y: 0 },
+            { x: -150, y: 0 },
+            { x: 0, y: 150 },
+            { x: 150, y: 0 },
           ];
 
           whyUsCards.forEach((card, i) => {
-            gsap.fromTo(card, { x: directions[i].x, y: directions[i].y, opacity: 0 }, {
-              x: 0, y: 0, opacity: 1, duration: 1.5, ease: "power3.out",
-              scrollTrigger: { trigger: "#why-us", start: "top 60%", toggleActions: "play none none none" },
-              delay: i * 0.15
-            });
+            gsap.fromTo(
+              card,
+              { x: directions[i].x, y: directions[i].y, opacity: 0 },
+              {
+                x: 0,
+                y: 0,
+                opacity: 1,
+                duration: 1.5,
+                ease: "power3.out",
+                scrollTrigger: {
+                  trigger: "#why-us",
+                  start: "top 60%",
+                  toggleActions: "play none none none",
+                },
+                delay: i * 0.15,
+              },
+            );
           });
         }
 
         // Service Cards Animation
         const serviceCards = document.querySelectorAll(".service-card");
         if (serviceCards.length > 0) {
-          gsap.fromTo(serviceCards, { y: 150, opacity: 0 }, {
-            y: 0, opacity: 1, duration: 1.5, ease: "power3.out", stagger: 0.2,
-            scrollTrigger: { trigger: "#services", start: "top 65%", toggleActions: "play none none none" }
-          });
+          gsap.fromTo(
+            serviceCards,
+            { y: 150, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 1.5,
+              ease: "power3.out",
+              stagger: 0.2,
+              scrollTrigger: {
+                trigger: "#services",
+                start: "top 65%",
+                toggleActions: "play none none none",
+              },
+            },
+          );
         }
 
         // Hero Cards Levitating Animation
         const levitateCards = [
-          { selector: ".hero-levitate-card-1", y: -12, rotation: 16, duration: 3 },
-          { selector: ".hero-levitate-card-2", y: 10, rotation: -10, duration: 3.5 },
-          { selector: ".hero-levitate-card-3", y: -15, rotation: 20, duration: 4 },
-          { selector: ".hero-levitate-card-4", y: 8, rotation: -6, duration: 3.2 }
+          {
+            selector: ".hero-levitate-card-1",
+            y: -12,
+            rotation: 16,
+            duration: 3,
+          },
+          {
+            selector: ".hero-levitate-card-2",
+            y: 10,
+            rotation: -10,
+            duration: 3.5,
+          },
+          {
+            selector: ".hero-levitate-card-3",
+            y: -15,
+            rotation: 20,
+            duration: 4,
+          },
+          {
+            selector: ".hero-levitate-card-4",
+            y: 8,
+            rotation: -6,
+            duration: 3.2,
+          },
         ];
 
         levitateCards.forEach((card) => {
           gsap.to(card.selector, {
-            y: card.y, rotation: card.rotation, duration: card.duration,
-            ease: "sine.inOut", repeat: -1, yoyo: true
+            y: card.y,
+            rotation: card.rotation,
+            duration: card.duration,
+            ease: "sine.inOut",
+            repeat: -1,
+            yoyo: true,
           });
         });
 
@@ -2646,12 +2834,29 @@
           const valueCards = document.querySelectorAll(".value-card");
           if (valueCards.length > 0) {
             valueCards.forEach((card, i) => {
-              gsap.fromTo(card, {
-                rotationX: -30, transformOrigin: "top center", opacity: 0, z: -50, scale: 0.95
-              }, {
-                rotationX: 0, opacity: 1, z: 0, scale: 1, duration: 0.8, ease: "power2.out",
-                scrollTrigger: { trigger: card, start: "top 90%", toggleActions: "play none none none" }
-              });
+              gsap.fromTo(
+                card,
+                {
+                  rotationX: -30,
+                  transformOrigin: "top center",
+                  opacity: 0,
+                  z: -50,
+                  scale: 0.95,
+                },
+                {
+                  rotationX: 0,
+                  opacity: 1,
+                  z: 0,
+                  scale: 1,
+                  duration: 0.8,
+                  ease: "power2.out",
+                  scrollTrigger: {
+                    trigger: card,
+                    start: "top 90%",
+                    toggleActions: "play none none none",
+                  },
+                },
+              );
             });
           }
         }
