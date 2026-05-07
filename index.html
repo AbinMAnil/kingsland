@@ -111,6 +111,14 @@
         "url": "https://kingslandeducation.com"
       }
     </script>
+    <!-- Preload critical assets for faster LCP -->
+    <link rel="preload" as="image" type="image/webp" href="image.webp" />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    />
+
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
@@ -122,8 +130,9 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
       rel="stylesheet"
     />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- Defer GSAP — not needed for initial paint -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -770,9 +779,11 @@
           class="font-display-xl text-2xl font-bold tracking-tight text-on-surface flex items-center gap-3"
         >
           <img
-            src="logo.png"
+            src="logo.webp"
             alt="Kingsland Logo"
             class="h-11 w-auto object-contain block"
+            width="600"
+            height="150"
           />
         </div>
         <nav
@@ -922,9 +933,12 @@
           class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[1100px] z-10 flex justify-center items-end h-[82%] pointer-events-none"
         >
           <img
-            src="./image.png"
+            src="./image.webp"
             alt="Student"
             class="h-full w-auto object-contain object-bottom drop-shadow-[0_20px_50px_rgba(0,0,0,0.1)] relative z-10 opacity-90"
+            width="800"
+            height="939"
+            fetchpriority="high"
           />
           <!-- Bottom Gradient to blend image into surface -->
           <div
@@ -1204,9 +1218,12 @@
               class="relative h-[800px] rounded-[2rem] overflow-hidden reveal-on-scroll"
             >
               <img
-                src="./students.png"
+                src="./students.webp"
                 alt="Kingsland Students"
                 class="w-full h-full object-cover"
+                width="800"
+                height="731"
+                loading="lazy"
               />
               <div
                 class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"
@@ -1797,9 +1814,12 @@
               >
                 <div class="relative h-[400px] overflow-hidden">
                   <img
-                    src="../Rabindranath_Tagore_University.png"
+                    src="Rabindranath_Tagore_University.webp"
                     alt="Rabindranath Tagore University"
                     class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                    width="800"
+                    height="361"
+                    loading="lazy"
                   />
                   <div
                     class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
@@ -1900,9 +1920,12 @@
               >
                 <div class="relative h-[400px] overflow-hidden">
                   <img
-                    src="../North_East_Christian_University.png"
+                    src="North_East_Christian_University.webp"
                     alt="North East Christian University"
                     class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                    width="800"
+                    height="302"
+                    loading="lazy"
                   />
                   <div
                     class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
@@ -2063,7 +2086,10 @@
                 <img
                   alt="Attestation & Apostille"
                   class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                  src="/Attestation.png"
+                  src="Attestation.webp"
+                  width="700"
+                  height="466"
+                  loading="lazy"
                 />
                 <div
                   class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80"
@@ -2354,9 +2380,12 @@
               class="font-display-xl text-2xl font-bold tracking-tight text-on-surface flex items-center gap-2 mb-6"
             >
               <img
-                src="logo.png"
+                src="logo.webp"
                 alt="Kingsland Logo"
                 class="h-10 w-auto object-contain"
+                width="600"
+                height="150"
+                loading="lazy"
               />
             </div>
             <p class="text-on-surface-variant font-light text-lg mb-8 max-w-sm">
