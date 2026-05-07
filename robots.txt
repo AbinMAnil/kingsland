@@ -1,0 +1,11 @@
+# robots.txt — Kingsland International Education Group
+# https://kingslandeducation.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://kingslandeducation.com/sitemap.xml
+
+# Crawl-delay (optional, respected by some bots)
+Crawl-delay: 1

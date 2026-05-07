@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+>
+  <!-- Homepage -->
+  <url>
+    <loc>https://kingslandeducation.com/</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://kingslandeducation.com/logo.png</image:loc>
+      <image:title>Kingsland International Education Group Logo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kingslandeducation.com/small_logo.png</image:loc>
+      <image:title>Kingsland Education Small Logo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kingslandeducation.com/students.png</image:loc>
+      <image:title>Kingsland Education Students</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kingslandeducation.com/image.png</image:loc>
+      <image:title>Kingsland Education Hero Image</image:title>
+    </image:image>
+  </url>
+
+  <!-- Courses Page -->
+  <url>
+    <loc>https://kingslandeducation.com/courses.html</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://kingslandeducation.com/North_East_Christian_University.png</image:loc>
+      <image:title>North East Christian University</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kingslandeducation.com/Rabindranath_Tagore_University.png</image:loc>
+      <image:title>Rabindranath Tagore University</image:title>
+    </image:image>
+  </url>
+
+  <!-- Contact Page -->
+  <url>
+    <loc>https://kingslandeducation.com/contact.html</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://kingslandeducation.com/Attestation.png</image:loc>
+      <image:title>Kingsland Attestation Services</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kingslandeducation.com/Attestation2.png</image:loc>
+      <image:title>Kingsland Attestation Services Detail</image:title>
+    </image:image>
+  </url>
+</urlset>
